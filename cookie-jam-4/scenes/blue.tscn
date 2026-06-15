@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf7v11b0n7mx7"]
+[gd_scene load_steps=4 format=3 uid="uid://cf7v11b0n7mx7"]
 
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="1_oahj1"]
 [ext_resource type="Script" uid="uid://clttpdgapxwag" path="res://companion.gd" id="1_qe84c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe84c"]
+size = Vector2(125, 128)
 
 [node name="blue" type="Node2D"]
 script = ExtResource("1_qe84c")
@@ -11,3 +14,11 @@ color = "blue"
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
 texture = ExtResource("1_oahj1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -2)
+shape = SubResource("RectangleShape2D_qe84c")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

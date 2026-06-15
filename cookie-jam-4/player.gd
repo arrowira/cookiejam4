@@ -33,4 +33,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		$bSpin.rotation_degrees += bSpinSpeed
 		
-		
+func hit(color, body):
+	if color == "red":
+		body.damage(30)
+	elif color == "blue":
+		body.damage(30)
