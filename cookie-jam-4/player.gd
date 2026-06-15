@@ -3,6 +3,8 @@ extends Node2D
 var anchor = "red"
 var bSpinSpeed = 5
 var rSpinSpeed = 5
+var anchorPos
+
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 
@@ -12,6 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	anchorPos = $"camera anchor".position
 	if Input.is_action_just_pressed("space"):
 		if anchor == "red":
 			anchor = "blue"
