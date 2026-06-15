@@ -3,9 +3,7 @@ extends RigidBody2D
 var player = Vector2.RIGHT
 var health = 100
 var towardsPlayer = Vector2.RIGHT
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	damage(30)
+var inKB = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,13 +12,20 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	towardsPlayer = (player-global_position).normalized()
-	position+=towardsPlayer
+	if !inKB:
+		towardsPlayer = (player-global_position).normalized()
+		position+=towardsPlayer
 	
 	
 	
 func damage(amt):
-	
-	var kbVector = (10*amt) * (-towardsPlayer).normalized()
+	var kbVector = (300*amt) * (-towardsPlayer).normalized()
 	apply_central_impulse(kbVector)
 	health-=amt
+	
+	inKB = true
+	$knockback.start()
+
+
+func _on_knockback_timeout() -> void:
+	inKB = false

@@ -9,7 +9,7 @@ size = Vector2(122, 123)
 [node name="grunt" type="RigidBody2D"]
 mass = 10.0
 gravity_scale = 0.0
-linear_damp = 1.0
+linear_damp = 10.0
 script = ExtResource("1_6upo6")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -20,3 +20,7 @@ texture = ExtResource("1_usvl4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_6upo6")
+
+[node name="knockback" type="Timer" parent="."]
+
+[connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
