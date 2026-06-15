@@ -1,8 +1,8 @@
 extends Node2D
 
 var anchor = "red"
-var bSpinSpeed = 1
-var rSpinSpeed = 1
+var bSpinSpeed = 5
+var rSpinSpeed = 5
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 
@@ -17,10 +17,12 @@ func _process(delta: float) -> void:
 			anchor = "blue"
 			$bSpin.rotation_degrees = $rSpin.rotation_degrees
 			$bSpin.global_position = blue.global_position
+			$"camera anchor".global_position = blue.global_position
 		else:
 			anchor = "red"
 			$rSpin.rotation_degrees = $bSpin.rotation_degrees
 			$rSpin.global_position = red.global_position
+			$"camera anchor".global_position = red.global_position
 			
 func _physics_process(delta: float) -> void:
 	if anchor == "red":

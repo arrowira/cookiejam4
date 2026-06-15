@@ -8,15 +8,19 @@
 script = ExtResource("1_qhqgy")
 
 [node name="bSpin" type="Node2D" parent="."]
-position = Vector2(841, -3)
+position = Vector2(436, -6)
 
 [node name="red" parent="bSpin" instance=ExtResource("2_dqkch")]
-position = Vector2(-840, -3)
+position = Vector2(-432, 10)
 
 [node name="rSpin" type="Node2D" parent="."]
 
 [node name="blue" parent="rSpin" instance=ExtResource("3_qlg0r")]
-position = Vector2(835, -8)
+position = Vector2(436, -8)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.2, 0.2)
+[node name="camera anchor" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="camera anchor"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
