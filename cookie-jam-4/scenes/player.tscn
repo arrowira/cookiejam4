@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=4 format=3 uid="uid://bw3ldb6e8p56j"]
+
+[ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://player.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
+[ext_resource type="PackedScene" uid="uid://cf7v11b0n7mx7" path="res://scenes/blue.tscn" id="3_qlg0r"]
 
 [node name="player" type="Node2D"]
+script = ExtResource("1_qhqgy")
+
+[node name="bSpin" type="Node2D" parent="."]
+position = Vector2(841, -3)
+
+[node name="red" parent="bSpin" instance=ExtResource("2_dqkch")]
+position = Vector2(-840, -3)
+
+[node name="rSpin" type="Node2D" parent="."]
+
+[node name="blue" parent="rSpin" instance=ExtResource("3_qlg0r")]
+position = Vector2(835, -8)
