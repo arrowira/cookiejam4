@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf7v11b0n7mx7"]
+[gd_scene load_steps=3 format=3 uid="uid://cf7v11b0n7mx7"]
 
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="1_oahj1"]
+[ext_resource type="Script" uid="uid://clttpdgapxwag" path="res://companion.gd" id="1_qe84c"]
 
 [node name="blue" type="Node2D"]
+script = ExtResource("1_qe84c")
+weapon = true
+color = "blue"
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
