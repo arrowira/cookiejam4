@@ -8,3 +8,4 @@ texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("1_lunv3")
 vframes = 2
+frame = 1
