@@ -18,10 +18,14 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		if anchor == "red":
 			anchor = "blue"
+			blue.anchor()
+			red.deanchor()
 			$bSpin.rotation_degrees = $rSpin.rotation_degrees
 			$bSpin.global_position = blue.global_position
 			$"camera anchor".global_position = blue.global_position
 		else:
+			blue.deanchor()
+			red.anchor()
 			anchor = "red"
 			$rSpin.rotation_degrees = $bSpin.rotation_degrees
 			$rSpin.global_position = red.global_position
