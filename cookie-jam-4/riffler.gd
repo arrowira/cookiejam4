@@ -7,7 +7,7 @@ var inKB = false
 var speed = 5
 
 var dir = Vector2.ZERO
-var behaviour = "d"
+var behaviour = "default"
 
 func _ready() -> void:
 	$healthBar.value = 100
