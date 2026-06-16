@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://booqq73jehcn8"]
+[gd_scene load_steps=4 format=3 uid="uid://booqq73jehcn8"]
 
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="1_c8fcr"]
+[ext_resource type="Script" uid="uid://dgyd18r83b1w6" path="res://projectile.gd" id="1_q3m7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
 radius = 13.0
 
 [node name="projectile" type="RigidBody2D"]
+script = ExtResource("1_q3m7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q3m7n")
@@ -14,3 +16,7 @@ shape = SubResource("CircleShape2D_q3m7n")
 position = Vector2(-3, -1)
 scale = Vector2(1, 0.1)
 texture = ExtResource("1_c8fcr")
+
+[node name="death" type="Timer" parent="."]
+
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]
