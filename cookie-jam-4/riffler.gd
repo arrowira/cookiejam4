@@ -9,6 +9,8 @@ var speed = 5
 var dir = Vector2.ZERO
 var behaviour = "default"
 
+var pProj = preload("res://scenes/projectile.tscn")
+
 func _ready() -> void:
 	$healthBar.value = 100
 
@@ -57,4 +59,8 @@ func _on_behaviour_cd_timeout() -> void:
 
 
 func _on_shooting_cd_timeout() -> void:
-	pass # Replace with function body.
+	if randf()<0.7:
+		var projectile = pProj.instantiate()
+		projectile.global_position = global_position
+		projectile.rotation = atan2(global_position.y-player.y, global_position.x-player.x)
+		get_parent().add_child(projectile)

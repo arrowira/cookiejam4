@@ -45,7 +45,6 @@ wait_time = 0.9
 autostart = true
 
 [node name="shootingCD" type="Timer" parent="."]
-wait_time = 0.4
 autostart = true
 
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
