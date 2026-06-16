@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_spawn_cd_timeout() -> void:
 	var grunt = pGrunt.instantiate()
-	grunt.global_position.x = randf_range(-10,10)
-	grunt.global_position.y = randf_range(-10,10)
+	grunt.global_position.x = randf_range(-1000,1000)
+	grunt.global_position.y = randf_range(-1000,1000)
 	add_child(grunt)

@@ -8,10 +8,12 @@ var inKB = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	player = get_parent().get_parent().get_node("player").anchorPos
 	
 
 func _physics_process(delta: float) -> void:
+	rotation = 0
 	if !inKB:
 		towardsPlayer = (player-global_position).normalized()
 		position+=towardsPlayer
