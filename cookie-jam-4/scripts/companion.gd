@@ -10,7 +10,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !weapon:
+		global_rotation_degrees = 0
+	else:
+		if color == "red":
+			rotation = -PI/2
+		else:
+			rotation = PI/2
 	
 func anchor():
 	weapon = false

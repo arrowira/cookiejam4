@@ -14,6 +14,7 @@ position = Vector2(436, -6)
 position = Vector2(-432, 10)
 
 [node name="rSpin" type="Node2D" parent="."]
+rotation = 3.1415927
 
 [node name="blue" parent="rSpin" instance=ExtResource("3_qlg0r")]
 position = Vector2(436, -8)
