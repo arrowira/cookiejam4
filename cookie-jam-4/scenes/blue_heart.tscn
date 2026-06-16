@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://nouvkbk3w1fw"]
+
+[ext_resource type="Texture2D" uid="uid://dhgfp7hok3j2a" path="res://sprites/heart (1).png" id="1_wyw0k"]
+
+[node name="BlueHeart" type="Sprite2D"]
+modulate = Color(0.464431, 0.57574826, 1, 1)
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_wyw0k")
+vframes = 2
