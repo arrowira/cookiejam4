@@ -5,6 +5,8 @@ var health = 100
 var towardsPlayer = Vector2.RIGHT
 var inKB = false
 
+func _ready() -> void:
+	$healthBar.value = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -17,15 +19,23 @@ func _physics_process(delta: float) -> void:
 	if !inKB:
 		towardsPlayer = (player-global_position).normalized()
 		position+=towardsPlayer
-	
+
+func death():
+	queue_free()
 	
 	
 func damage(amt):
 	var kbVector = (300*amt) * (-towardsPlayer).normalized()
 	apply_central_impulse(kbVector)
 	health-=amt
+
+	
+	if health <= 0:
+		health = 0
+		death()
 	
 	inKB = true
+	$healthBar.value = health
 	$knockback.start()
 
 
