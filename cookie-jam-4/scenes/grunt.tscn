@@ -23,4 +23,6 @@ shape = SubResource("RectangleShape2D_6upo6")
 
 [node name="knockback" type="Timer" parent="."]
 
+[node name="grunt" type="Node" parent="."]
+
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
