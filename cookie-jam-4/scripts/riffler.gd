@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 	rotation = 0
 	towardsPlayer = (player-global_position).normalized()
 	if !inKB and behaviour == "running":
-		print("rn")
 		position+=dir*speed
 
 func death():

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf7v11b0n7mx7"]
 
-[ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="1_oahj1"]
-[ext_resource type="Script" uid="uid://clttpdgapxwag" path="res://companion.gd" id="1_qe84c"]
+[ext_resource type="Script" uid="uid://clttpdgapxwag" path="res://scripts/companion.gd" id="1_qe84c"]
+[ext_resource type="Texture2D" uid="uid://cgsc80oeatyu4" path="res://sprites/blue_monkey_sprite_sheet.png" id="2_qe84c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe84c"]
 size = Vector2(125, 128)
@@ -11,9 +11,13 @@ script = ExtResource("1_qe84c")
 weapon = true
 color = "blue"
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-texture = ExtResource("1_oahj1")
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.9999999, -17)
+scale = Vector2(10, 10)
+texture = ExtResource("2_qe84c")
+hframes = 16
+vframes = 3
 
 [node name="Area2D" type="Area2D" parent="."]
 

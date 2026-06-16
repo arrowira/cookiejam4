@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2oyj3tjpfivl"]
 
-[ext_resource type="Script" uid="uid://bp7bsakurvxt5" path="res://riffler.gd" id="1_3l6g6"]
+[ext_resource type="Script" uid="uid://bp7bsakurvxt5" path="res://scripts/riffler.gd" id="1_3l6g6"]
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="2_65ant"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6upo6"]

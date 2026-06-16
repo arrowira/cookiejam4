@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bw3ldb6e8p56j" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://c2oyj3tjpfivl" path="res://scenes/riffler.tscn" id="3_jyhfs"]
-[ext_resource type="Script" uid="uid://cnjga6vn8wc5j" path="res://enemy_manager.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://cnjga6vn8wc5j" path="res://scripts/enemy_manager.gd" id="3_sugp2"]
 
 [node name="main" type="Node2D"]
 
