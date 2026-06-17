@@ -8,6 +8,8 @@ size = Vector2(125, 128)
 
 [sub_resource type="Animation" id="Animation_qe84c"]
 resource_name = "anchored"
+length = 0.48
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +17,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3, 0.33, 0.36, 0.39, 0.42, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_ydvue"]
@@ -81,5 +83,6 @@ shape = SubResource("RectangleShape2D_qe84c")
 libraries = {
 &"": SubResource("AnimationLibrary_hvrnj")
 }
+speed_scale = 0.4
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
