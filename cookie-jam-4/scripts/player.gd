@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	$Line2D.set_point_position(1, red.global_position)
 	anchorPos = $"camera anchor".position
 	
+	if Input.is_action_just_pressed("k"):
+		changeRope(20)
 		
 	
 	if Input.is_action_just_pressed("space"):
@@ -58,8 +60,14 @@ func hurt(color, amt):
 		else:
 			$hud/blueHearts.takeDamage()
 			blueHealth-=1
+
 func hit(color, body):
 	if color == "red":
 		body.damage(30)
 	elif color == "blue":
 		body.damage(30)
+		
+func changeRope(dLength):
+	blue.position.x += dLength
+	red.position.x -= dLength
+	
