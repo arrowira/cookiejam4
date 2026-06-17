@@ -10,6 +10,7 @@ var blueHealth = 3
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
+@onready var circle = $SpeedCircle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,11 +27,12 @@ func _process(delta: float) -> void:
 	anchorPos = $"camera anchor".position
 	
 	if Input.is_action_just_pressed("k"):
-		changeRope(20)
+		changeRope(-20)
 		
 	
 	if Input.is_action_just_pressed("space"):
 		if anchor == "red":
+			circle.global_position = blue.global_position
 			anchor = "blue"
 			blue.anchor()
 			red.deanchor()
@@ -38,6 +40,7 @@ func _process(delta: float) -> void:
 			$bSpin.global_position = blue.global_position
 			$"camera anchor".global_position = blue.global_position
 		else:
+			circle.global_position = red.global_position
 			blue.deanchor()
 			red.anchor()
 			anchor = "red"

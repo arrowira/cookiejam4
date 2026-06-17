@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=7 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://cf7v11b0n7mx7" path="res://scenes/blue.tscn" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://bqnr5h2wfs35k" path="res://scripts/HeartManager.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://dxeyjh4isglb3" path="res://scripts/shaker.gd" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://c7i5fn25jotw8" path="res://scenes/speed_circle.tscn" id="6_tuyoq"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
@@ -54,5 +55,7 @@ offset_top = 59.0
 offset_right = 564.0
 offset_bottom = 109.0
 script = ExtResource("4_qlg0r")
+
+[node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
