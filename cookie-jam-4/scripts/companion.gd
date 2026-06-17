@@ -32,3 +32,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			get_parent().get_parent().hit(color, body)
 		else:
 			get_parent().get_parent().hurt(color, 1)
+			body.knockback(30)

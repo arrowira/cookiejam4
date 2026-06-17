@@ -25,17 +25,20 @@ func death():
 	
 	
 func damage(amt):
-	var kbVector = (300*amt) * (-towardsPlayer).normalized()
-	apply_central_impulse(kbVector)
 	health-=amt
-
+	knockback(amt)
 	
 	if health <= 0:
 		health = 0
 		death()
 	
-	inKB = true
 	$healthBar.value = health
+	
+	
+func knockback(intensity):
+	var kbVector = (300*intensity) * (-towardsPlayer).normalized()
+	apply_central_impulse(kbVector)
+	inKB = true
 	$knockback.start()
 
 
