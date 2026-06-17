@@ -12,7 +12,7 @@ func addHeart(color):
 		heart = pRHeart.instantiate()
 	else:
 		heart = pBHeart.instantiate()
-	heart.position = Vector2(len(hearts)*50 + 40, position.y+10)
+	heart.position = Vector2(len(hearts)*50 + 40, 21)
 	hearts.append(heart)
 	heal()
 	add_child(heart)
@@ -26,11 +26,3 @@ func heal():
 
 func flipHeart(index, bit):
 	hearts[index].frame = bit
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("space"):
-		addHeart("red")
-	if Input.is_action_just_pressed("k"):
-		takeDamage()
-	if Input.is_action_just_pressed("i"):
-		heal()

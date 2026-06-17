@@ -5,12 +5,17 @@ var bSpinSpeed = 5
 var rSpinSpeed = 5
 var anchorPos
 
+var redHealth = 3
+var blueHealth = 3
+
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in range(3):
+		$hud/redHearts.addHeart("red")
+		$hud/blueHearts.addHeart("blue")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,7 +41,15 @@ func _physics_process(delta: float) -> void:
 		$rSpin.rotation_degrees += rSpinSpeed
 	else:
 		$bSpin.rotation_degrees += bSpinSpeed
-		
+
+func hurt(color, amt):
+	for i in range(amt):
+		if color == "red":
+			$hud/redHearts.takeDamage()
+			redHealth-=1
+		else:
+			$hud/blueHearts.takeDamage()
+			blueHealth-=1
 func hit(color, body):
 	if color == "red":
 		body.damage(30)

@@ -28,4 +28,7 @@ func deanchor():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.get_node("grunt") != null or body.get_node("riffler") != null:
-		get_parent().get_parent().hit(color, body)
+		if weapon:
+			get_parent().get_parent().hit(color, body)
+		else:
+			get_parent().get_parent().hurt(color, 1)
