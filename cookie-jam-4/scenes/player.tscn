@@ -9,6 +9,9 @@
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
 
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0.35737205, 0.25686094, 0.18469071, 1)
+
 [node name="bSpin" type="Node2D" parent="."]
 position = Vector2(436, -6)
 
@@ -32,7 +35,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
 [node name="shakeCD" type="Timer" parent="camera anchor/shaker"]
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

@@ -13,12 +13,16 @@ var blueHealth = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Line2D.add_point(Vector2.ZERO,0)
+	$Line2D.add_point(Vector2.ZERO,1)
 	for i in range(3):
 		$hud/redHearts.addHeart("red")
 		$hud/blueHearts.addHeart("blue")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Line2D.set_point_position(0, blue.global_position)
+	$Line2D.set_point_position(1, red.global_position)
 	anchorPos = $"camera anchor".position
 	
 		
@@ -46,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		$bSpin.rotation_degrees += bSpinSpeed
 
 func hurt(color, amt):
-	$"camera anchor/shaker".shake(5,50)
+	$"camera anchor/shaker".shake(6,100)
 	for i in range(amt):
 		if color == "red":
 			$hud/redHearts.takeDamage()
