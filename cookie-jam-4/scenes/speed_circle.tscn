@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7i5fn25jotw8"]
+
+[ext_resource type="Texture2D" uid="uid://byv22wa005tqt" path="res://sprites/circle-outline-256.png" id="1_stvj4"]
+
+[node name="SpeedCircle" type="Node2D"]
+
+[node name="CircleOutline256" type="Sprite2D" parent="."]
+modulate = Color(0.50980395, 0.7137255, 0.8117647, 0.56078434)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_stvj4")
