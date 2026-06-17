@@ -18,8 +18,9 @@ func shake(length, i):
 
 func _on_shake_cd_timeout() -> void:
 	turns -= 1
-	position = Vector2(randf_range(-intensity, intensity),randf_range(-intensity,intensity))
-	if turns == 0:
+	var rand = 10*randf()
+	position = (intensity/turns)*Vector2(cos(rand),sin(rand))
+	if turns == 1:
 		cam.position_smoothing_speed = defaultCamSpeed
 		$shakeCD.stop()
 		position = Vector2.ZERO

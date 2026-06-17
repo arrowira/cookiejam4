@@ -21,8 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	anchorPos = $"camera anchor".position
 	
-	if Input.is_action_just_pressed("i"):
-		$"camera anchor/shaker".shake(3,50)
+		
 	
 	if Input.is_action_just_pressed("space"):
 		if anchor == "red":
@@ -47,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		$bSpin.rotation_degrees += bSpinSpeed
 
 func hurt(color, amt):
+	$"camera anchor/shaker".shake(5,50)
 	for i in range(amt):
 		if color == "red":
 			$hud/redHearts.takeDamage()
