@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 		
 		if c.rotation_degrees > 350 or c.rotation_degrees < 10:
 			$expander.scale *= 1.2
-			print("score")
+			get_parent().changeSpinSpeed(2)
 	
 	if $expander.scale.length() >= 1.5:
 		$expander.scale *= 0.99
