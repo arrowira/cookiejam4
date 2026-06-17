@@ -20,6 +20,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	anchorPos = $"camera anchor".position
+	
+	if Input.is_action_just_pressed("i"):
+		$"camera anchor/shaker".shake(3,50)
+	
 	if Input.is_action_just_pressed("space"):
 		if anchor == "red":
 			anchor = "blue"

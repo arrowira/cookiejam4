@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=6 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://cf7v11b0n7mx7" path="res://scenes/blue.tscn" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://bqnr5h2wfs35k" path="res://scripts/HeartManager.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://dxeyjh4isglb3" path="res://scripts/shaker.gd" id="4_tuyoq"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
@@ -22,10 +23,16 @@ position = Vector2(436, -8)
 
 [node name="camera anchor" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="camera anchor"]
+[node name="shaker" type="Node2D" parent="camera anchor"]
+script = ExtResource("4_tuyoq")
+
+[node name="Camera2D" type="Camera2D" parent="camera anchor/shaker"]
 zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="shakeCD" type="Timer" parent="camera anchor/shaker"]
+wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -44,3 +51,5 @@ offset_top = 59.0
 offset_right = 564.0
 offset_bottom = 109.0
 script = ExtResource("4_qlg0r")
+
+[connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
