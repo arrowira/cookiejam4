@@ -6,6 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbj63"]
 shader = ExtResource("1_0l6xh")
+shader_parameter/tex = ExtResource("2_0l6xh")
 shader_parameter/alpha = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0l6xh"]
