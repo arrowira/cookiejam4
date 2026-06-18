@@ -7,11 +7,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+func open():
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("e"):
 		if red or blue:
-			queue_free()
+			open()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -31,4 +34,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.get_parent().name == "red":
+		open()
+	if area.get_parent().name == "blue":
+		open()

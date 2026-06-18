@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4gr2idt1j6bt"]
+[gd_scene load_steps=5 format=3 uid="uid://c4gr2idt1j6bt"]
 
 [ext_resource type="Script" uid="uid://cx1nq7w0g74pl" path="res://scripts/pick_up.gd" id="1_adew5"]
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="2_tsqy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c87fy"]
 radius = 352.39325
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adew5"]
+radius = 68.0294
 
 [node name="PickUp" type="Node2D"]
 script = ExtResource("1_adew5")
@@ -17,5 +20,11 @@ texture = ExtResource("2_tsqy0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_c87fy")
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_adew5")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
