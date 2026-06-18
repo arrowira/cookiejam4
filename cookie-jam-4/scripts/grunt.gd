@@ -31,7 +31,10 @@ func death():
 	var ghost = pGhost.instantiate()
 	ghost.global_position=global_position
 	get_parent().add_child(ghost)
-	queue_free()
+	
+	$deathTimer.start()
+	$AnimationPlayer.play("die")
+	$healthBar.visible = false
 	
 	
 func damage(amt):
@@ -54,3 +57,7 @@ func knockback(intensity):
 
 func _on_knockback_timeout() -> void:
 	inKB = false
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
