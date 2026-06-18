@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b008by43qhutm"]
+
+[ext_resource type="Script" uid="uid://dbk0bdwjbs7ev" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80nyk"]
+bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="upgradeCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_62kwj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -129.0
+offset_top = -158.0
+offset_right = 129.0
+offset_bottom = 154.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_80nyk")
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
