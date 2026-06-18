@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7i5fn25jotw8"]
+[gd_scene load_steps=8 format=3 uid="uid://c7i5fn25jotw8"]
 
 [ext_resource type="Texture2D" uid="uid://byv22wa005tqt" path="res://sprites/circle-outline-256.png" id="1_stvj4"]
 [ext_resource type="Script" uid="uid://crcy3l4b67s8x" path="res://scripts/speed_circle.gd" id="1_yafnj"]
 [ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="3_p40gi"]
 [ext_resource type="Texture2D" uid="uid://dchm3ispncs5i" path="res://sprites/circleRingSlice.png" id="4_5mbje"]
+
+[sub_resource type="Animation" id="Animation_5mbje"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_px4x8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ov5ku"]
+_data = {
+&"RESET": SubResource("Animation_px4x8"),
+&"fadeIn": SubResource("Animation_5mbje")
+}
 
 [node name="SpeedCircle" type="Node2D"]
 script = ExtResource("1_yafnj")
@@ -29,3 +65,8 @@ position = Vector2(0, -22)
 position = Vector2(-1, -135)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_p40gi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ov5ku")
+}

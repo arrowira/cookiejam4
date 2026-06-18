@@ -8,6 +8,8 @@ var anchorPos
 var redHealth = 3
 var blueHealth = 3
 
+var frozen = false
+
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 @onready var circle = $SpeedCircle
@@ -50,10 +52,11 @@ func _process(delta: float) -> void:
 			$"camera anchor".global_position = red.global_position
 			
 func _physics_process(delta: float) -> void:
-	if anchor == "red":
-		$rSpin.rotation_degrees += rSpinSpeed
-	else:
-		$bSpin.rotation_degrees += bSpinSpeed
+	if !frozen:
+		if anchor == "red":
+			$rSpin.rotation_degrees += rSpinSpeed
+		else:
+			$bSpin.rotation_degrees += bSpinSpeed
 
 func hurt(color, amt):
 	$"camera anchor/shaker".shake(6,100)
@@ -68,7 +71,6 @@ func hurt(color, amt):
 func hit(color, body):
 	var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
 	changeSpinSpeed(-0.1)
-	$"camera anchor/shaker".hit()
 	if color == "red":
 		body.damage(15*damageX)
 	elif color == "blue":

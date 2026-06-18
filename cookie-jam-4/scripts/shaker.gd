@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		t-=1
 	else:
 		Engine.time_scale = 1
+		get_parent().get_parent().frozen=false
 	
 
 func _on_shake_cd_timeout() -> void:
@@ -39,6 +40,7 @@ func _on_shake_cd_timeout() -> void:
 func timestop():
 	t = 2
 	Engine.time_scale = 0
+	get_parent().get_parent().frozen=true
 	$timeCD.start()
 	
 	

@@ -3,6 +3,11 @@ extends Node2D
 @onready var c = $expander/center
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("space"):
+		$AnimationPlayer.play("RESET")
+		$AnimationPlayer.play("fadeIn")
+	
 	c.rotation_degrees += 5
 	c.rotation_degrees = int(c.rotation_degrees)%360
 	
