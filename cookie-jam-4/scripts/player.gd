@@ -53,10 +53,17 @@ func _process(delta: float) -> void:
 
 func upgrade():
 	frozen = true
-	Engine.time_scale = 0
+	Engine.time_scale = 0.1
 	$hud/upgradeMenu.visible = true
 
-
+func upgradePart2(id):
+	
+	if id == 1:
+		#up red health
+		$hud/redHearts.addHeart("red")
+	if id == 2:
+		#up blue health
+		$hud/blueHearts.addHeart("blue")
 			
 func _physics_process(delta: float) -> void:
 	if !frozen:

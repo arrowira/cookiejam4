@@ -1,6 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b008by43qhutm"]
+[gd_scene load_steps=5 format=3 uid="uid://b008by43qhutm"]
 
 [ext_resource type="Script" uid="uid://dbk0bdwjbs7ev" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
+[ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_ew4bf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fk0rn"]
+shader = ExtResource("2_ew4bf")
+shader_parameter/innerColor = Color(0.28586766, 0.23622257, 0.29414013, 1)
+shader_parameter/outerColor = Color(0.4361134, 0.3299619, 0.46173686, 1)
+shader_parameter/scale = 3.0
+shader_parameter/timeMod = 3.0
+shader_parameter/pixelation = 10.0
+shader_parameter/bold = 5.0
+shader_parameter/sharp = 2.0
+shader_parameter/moveSpeed = 1.0
+shader_parameter/focusPoint = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80nyk"]
 bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
@@ -14,13 +27,23 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_62kwj")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fk0rn")
 layout_mode = 0
-offset_left = -129.0
-offset_top = -158.0
-offset_right = 129.0
-offset_bottom = 154.0
+offset_left = -115.0
+offset_top = -156.0
+offset_right = 114.0
+offset_bottom = 159.0
+
+[node name="Panel" type="Panel" parent="Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 217.0
+offset_bottom = 303.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_80nyk")
 
-[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
-[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="mouse_entered" from="Panel2" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel2" to="." method="_on_panel_mouse_exited"]
+[connection signal="mouse_entered" from="Panel2/Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel2/Panel" to="." method="_on_panel_mouse_exited"]

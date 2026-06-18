@@ -70,29 +70,20 @@ vec4 shade(float degree){
 }
 
 float pattern(vec2 uv){
-	return perlinNoise(uv + perlinNoise(uv+perlinNoise(uv-iTime+1.0)-0.0) + iTime*moveSpeed)/(1.0);
+	return perlinNoise(uv + perlinNoise(uv+perlinNoise(uv-iTime)) + iTime*moveSpeed)/(1.0);
 }
 
 void fragment()
 {
 	//vec2 focusPoint = vec2(0.3*sin(TIME)+0.5,0.2*cos(TIME)+0.5);
-	
-	
+
+
 	vec2 px=pixelation*SCREEN_PIXEL_SIZE;
 	vec2 uv = (floor(UV/px)*px);
-	
+
 	float focusMod = clamp((1.0-(1.0/(distance(uv, focusPoint)*50.0))), 0, 1);
 	uv = uv*focusMod;
-	
-	
-	COLOR = shade(pattern(scale*uv + iTime*moveSpeed));
-	if (pow(UV.x-0.5,2) + pow(UV.y-0.5,2) > 0.25){
-		COLOR.a = 0.0;
-	}
-		
-}
 
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}
+
+	COLOR = shade(pattern(scale*uv + iTime*moveSpeed));
+}
