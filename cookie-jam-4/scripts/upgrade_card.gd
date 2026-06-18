@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	
 	if mouseIn and Input.is_action_just_pressed("click"):
 		#select this card
-		get_parent().get_parent().get_parent().get_parent().upgradePart2(id)
+		get_parent().get_parent().get_parent().get_parent().upgradeID = id
 
 
 func _on_panel_mouse_entered() -> void:

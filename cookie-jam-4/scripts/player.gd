@@ -4,6 +4,7 @@ var anchor = "red"
 var bSpinSpeed = 5
 var rSpinSpeed = 5
 var anchorPos
+var upgradeID = 0
 
 var redHealth = 3
 var blueHealth = 3
@@ -58,12 +59,12 @@ func upgrade():
 	$hud/upgradeMenu/Panel/upgradeCard2.initialize()
 	$hud/upgradeMenu.visible = true
 
-func upgradePart2(id):
+func upgradePart2():
 	
-	if id == 1:
+	if upgradeID == 1:
 		#up red health
 		$hud/redHearts.addHeart("red")
-	if id == 2:
+	if upgradeID == 2:
 		#up blue health
 		$hud/blueHearts.addHeart("blue")
 			
@@ -114,4 +115,5 @@ func changeSpinSpeed(amt):
 func _on_enter_b_button_down() -> void:
 	frozen = false
 	Engine.time_scale=1
+	upgradePart2()
 	$hud/upgradeMenu.visible=false

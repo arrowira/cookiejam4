@@ -54,3 +54,5 @@ text = "3
 [connection signal="mouse_exited" from="Panel2" to="." method="_on_panel_mouse_exited"]
 [connection signal="mouse_entered" from="Panel2/Panel" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel2/Panel" to="." method="_on_panel_mouse_exited"]
+[connection signal="mouse_entered" from="Panel2/Panel/BodyText" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel2/Panel/BodyText" to="." method="_on_panel_mouse_exited"]
