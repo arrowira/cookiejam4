@@ -5,6 +5,8 @@ var health = 100
 var towardsPlayer = Vector2.RIGHT
 var inKB = false
 
+var pGhost = preload("res://scenes/grunt_ghost.tscn")
+
 func _ready() -> void:
 	$healthBar.value = 100
 
@@ -26,6 +28,9 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer
 
 func death():
+	var ghost = pGhost.instantiate()
+	ghost.global_position=global_position
+	get_parent().add_child(ghost)
 	queue_free()
 	
 	
