@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("c"):
 		
-		if c.rotation_degrees > 350 or c.rotation_degrees < 10:
+		if c.rotation_degrees > 350 or c.rotation_degrees < 20:
 			$expander.scale *= 1.2
 			get_parent().changeSpinSpeed(2)
 	
