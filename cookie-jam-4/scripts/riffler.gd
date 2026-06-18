@@ -5,6 +5,8 @@ var health = 100
 var towardsPlayer = Vector2.RIGHT
 var inKB = false
 var speed = 5
+var dead = false
+var frozen = false
 
 var dir = Vector2.ZERO
 var behaviour = "default"
@@ -22,26 +24,31 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	rotation = 0
-	towardsPlayer = (player-global_position).normalized()
-	if !inKB and behaviour == "running":
-		position+=dir*speed
+	if !frozen:
+		towardsPlayer = (player-global_position).normalized()
+		if !inKB and behaviour == "running":
+			position+=dir*speed
 
 func death():
 	queue_free()
 	
 	
 func damage(amt):
-	var kbVector = (300*amt) * (-towardsPlayer).normalized()
+	if !dead:
+		health-=amt
+		knockback(amt)
+		
+		if health <= 0:
+			health = 0
+			death()
+		
+		$healthBar.value = health
+		
+	
+func knockback(intensity):
+	var kbVector = (300*intensity) * (-towardsPlayer).normalized()
 	apply_central_impulse(kbVector)
-	health-=amt
-
-	
-	if health <= 0:
-		health = 0
-		death()
-	
 	inKB = true
-	$healthBar.value = health
 	$knockback.start()
 
 

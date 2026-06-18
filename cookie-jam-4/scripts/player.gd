@@ -11,6 +11,8 @@ var blueHealth = 3
 
 var frozen = false
 
+var upgrades = [0,0,0,0,0]
+
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 @onready var circle = $SpeedCircle
