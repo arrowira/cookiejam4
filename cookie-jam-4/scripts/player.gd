@@ -62,7 +62,7 @@ func upgrade():
 	$hud/upgradeMenu.visible = true
 
 func upgradePart2():
-	
+	upgrades[upgradeID-1]+=1
 	if upgradeID == 1:
 		#up red health
 		$hud/redHearts.addHeart("red")
