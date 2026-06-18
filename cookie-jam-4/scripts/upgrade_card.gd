@@ -18,10 +18,12 @@ func initialize():
 	#4 = +speed from speed ring
 	#5 = +rope length
 	
-	#ability text
+	#new ability! check
+	var new = false
 	if id!=1 and id!=2 and id!= 4:
 		if player.upgrades[id-1] == 0:
 			$Panel2/Panel/NewUpgrade.visible = true
+			new = true
 			
 			
 			
@@ -29,9 +31,25 @@ func initialize():
 			$Panel2/Panel/NewUpgrade.visible = false
 	else:
 		$Panel2/Panel/NewUpgrade.visible = false
+		
+	#ability description text
+	var bodyText = ""
+	match id:
+		1:
+			bodyText = "add one heart to red's health"
+		2:
+			bodyText = "add one heart to blue's health"
+		3:
+			if new:
+				bodyText = "when you press x, slow down time for 0.5 seconds"
+			else:
+				bodyText = "add 0.5 seconds to time slow"
+		4:
+			bodyText = "gain more speed from a successful speed ring hit"
+		5:
+			bodyText = "rope"
+	$Panel2/Panel/BodyText.text = bodyText
 	
-	
-	$Panel2/Panel/BodyText.text = str(id)
 func _process(delta: float) -> void:
 	var t = get_global_mouse_position()
 	$Panel2.get_material().set_shader_parameter("focusPoint", t)
