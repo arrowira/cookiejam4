@@ -4,6 +4,8 @@ var player = Vector2.RIGHT
 var health = 100
 var towardsPlayer = Vector2.RIGHT
 var inKB = false
+var frozen = false
+var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
 
@@ -12,22 +14,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$AnimationPlayer.play("walk")
-	if player.x<global_position.x:
-		$Icon.flip_h=false
-	else:
-		$Icon.flip_h=true
-	
-	player = get_parent().get_parent().get_node("player").anchorPos
+	if !frozen:
+		$AnimationPlayer.play("walk")
+		if player.x<global_position.x:
+			$Icon.flip_h=false
+		else:
+			$Icon.flip_h=true
+		
+		player = get_parent().get_parent().get_node("player").anchorPos
 	
 
 func _physics_process(delta: float) -> void:
 	rotation = 0
-	if !inKB:
+	if !inKB and !frozen:
 		towardsPlayer = (player-global_position).normalized()
 		position+=towardsPlayer
 
 func death():
+	dead = true
+	frozen = true
 	var ghost = pGhost.instantiate()
 	ghost.global_position=global_position
 	get_parent().add_child(ghost)
@@ -38,15 +43,16 @@ func death():
 	
 	
 func damage(amt):
-	health-=amt
-	knockback(amt)
-	
-	if health <= 0:
-		health = 0
-		death()
-	
-	$healthBar.value = health
-	
+	if !dead:
+		health-=amt
+		knockback(amt)
+		
+		if health <= 0:
+			health = 0
+			death()
+		
+		$healthBar.value = health
+		
 	
 func knockback(intensity):
 	var kbVector = (300*intensity) * (-towardsPlayer).normalized()
