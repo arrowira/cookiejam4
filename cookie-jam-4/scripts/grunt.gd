@@ -10,6 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$AnimationPlayer.play("walk")
+	if player.x<global_position.x:
+		$Icon.flip_h=false
+	else:
+		$Icon.flip_h=true
 	
 	player = get_parent().get_parent().get_node("player").anchorPos
 	
