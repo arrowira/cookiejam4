@@ -68,6 +68,7 @@ func hurt(color, amt):
 func hit(color, body):
 	var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
 	changeSpinSpeed(-0.1)
+	$"camera anchor/shaker".hit()
 	if color == "red":
 		body.damage(15*damageX)
 	elif color == "blue":

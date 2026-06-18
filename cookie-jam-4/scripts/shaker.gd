@@ -5,15 +5,26 @@ var defaultCamSpeed = 0
 
 var turns = 0
 var intensity = 0
+var t = 0
 
 func _ready() -> void:
 	defaultCamSpeed = cam.position_smoothing_speed
+	
+func hit():
+	shake(4, 20)
+	timestop()
 
 func shake(length, i):
 	intensity = i
 	turns = length
 	$shakeCD.start()
 	cam.position_smoothing_speed = 20
+
+func _physics_process(delta: float) -> void:
+	if t != 0:
+		t-=1
+	else:
+		Engine.time_scale = 1
 	
 
 func _on_shake_cd_timeout() -> void:
@@ -24,3 +35,11 @@ func _on_shake_cd_timeout() -> void:
 		cam.position_smoothing_speed = defaultCamSpeed
 		$shakeCD.stop()
 		position = Vector2.ZERO
+
+func timestop():
+	t = 2
+	Engine.time_scale = 0
+	$timeCD.start()
+	
+	
+	

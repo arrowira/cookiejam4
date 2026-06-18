@@ -38,6 +38,10 @@ position_smoothing_speed = 2.0
 [node name="shakeCD" type="Timer" parent="camera anchor/shaker"]
 wait_time = 0.05
 
+[node name="timeCD" type="Timer" parent="camera anchor/shaker"]
+wait_time = 0.1
+one_shot = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="hud" type="CanvasLayer" parent="."]
@@ -59,3 +63,4 @@ script = ExtResource("4_qlg0r")
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
+[connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]
