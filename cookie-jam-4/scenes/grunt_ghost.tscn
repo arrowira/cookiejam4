@@ -6,17 +6,19 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbj63"]
 shader = ExtResource("1_0l6xh")
+shader_parameter/alpha = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0l6xh"]
 shader = ExtResource("1_0l6xh")
 shader_parameter/tex = ExtResource("2_0l6xh")
+shader_parameter/alpha = 0.0
 
 [node name="gruntGhost" type="Node2D"]
 material = SubResource("ShaderMaterial_cbj63")
 script = ExtResource("1_nst1s")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.52687156, 0.8378594, 0.99999994, 1)
+modulate = Color(0.8156863, 0.78431374, 0.7882353, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_0l6xh")
 position = Vector2(-1, -1)

@@ -2,6 +2,8 @@ shader_type canvas_item;
 
 uniform sampler2D tex : source_color, hint_default_white, filter_nearest;
 
+uniform float alpha = 1.0;
+
 void fragment() {
 	vec2 uv = vec2(UV.x,UV.y);
 	
@@ -14,6 +16,8 @@ void fragment() {
 	texCol.b *= 1.5;
 	texCol.r *= 0.6;
 	texCol.g *= 1.2;
+	
+	texCol.a *= alpha;
 	
 	COLOR = texCol;
 }
