@@ -14,7 +14,10 @@ func _process(delta: float) -> void:
 	
 	if mouseIn and Input.is_action_just_pressed("click"):
 		#select this card
+		$highlight.visible = true
 		get_parent().get_parent().get_parent().get_parent().upgradeID = id
+	elif Input.is_action_just_pressed("click"):
+		$highlight.visible = false
 
 
 func _on_panel_mouse_entered() -> void:

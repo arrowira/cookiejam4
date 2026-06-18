@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b008by43qhutm"]
+[gd_scene load_steps=6 format=3 uid="uid://b008by43qhutm"]
 
 [ext_resource type="Script" uid="uid://dbk0bdwjbs7ev" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_ew4bf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew4bf"]
+bg_color = Color(0.6636995, 0.59361935, 0.42943144, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fk0rn"]
 shader = ExtResource("2_ew4bf")
@@ -26,6 +29,15 @@ corner_radius_bottom_left = 15
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_62kwj")
+
+[node name="highlight" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -121.0
+offset_top = -164.0
+offset_right = 122.0
+offset_bottom = 165.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ew4bf")
 
 [node name="Panel2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fk0rn")
