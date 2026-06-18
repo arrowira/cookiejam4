@@ -54,6 +54,8 @@ func _process(delta: float) -> void:
 func upgrade():
 	frozen = true
 	Engine.time_scale = 0.1
+	$hud/upgradeMenu/Panel/upgradeCard.initialize()
+	$hud/upgradeMenu/Panel/upgradeCard2.initialize()
 	$hud/upgradeMenu.visible = true
 
 func upgradePart2(id):
