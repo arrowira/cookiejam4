@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		
 	
 	if Input.is_action_just_pressed("space"):
-		changeSpinSpeed(-0.5 )
+		changeSpinSpeed(-0.3 )
 		if anchor == "red":
 			circle.global_position = blue.global_position
 			anchor = "blue"
@@ -66,11 +66,12 @@ func hurt(color, amt):
 			blueHealth-=1
 
 func hit(color, body):
-	changeSpinSpeed(-0.25)
+	var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
+	changeSpinSpeed(-0.1)
 	if color == "red":
-		body.damage(30)
+		body.damage(15*damageX)
 	elif color == "blue":
-		body.damage(30)
+		body.damage(15*damageX)
 		
 func changeRope(dLength):
 	blue.position.x += dLength
