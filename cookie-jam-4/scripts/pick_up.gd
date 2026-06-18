@@ -8,6 +8,7 @@ func _ready() -> void:
 
 
 func open():
+	get_parent().get_node("player").upgrade()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

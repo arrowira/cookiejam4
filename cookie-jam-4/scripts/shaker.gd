@@ -21,9 +21,10 @@ func shake(length, i):
 	cam.position_smoothing_speed = 20
 
 func _physics_process(delta: float) -> void:
-	if t != 0:
+	if t > 0:
 		t-=1
-	else:
+	elif t == 0:
+		t-=1
 		Engine.time_scale = 1
 		get_parent().get_parent().frozen=false
 	

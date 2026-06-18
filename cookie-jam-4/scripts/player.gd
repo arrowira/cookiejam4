@@ -50,6 +50,13 @@ func _process(delta: float) -> void:
 			$rSpin.rotation_degrees = $bSpin.rotation_degrees
 			$rSpin.global_position = red.global_position
 			$"camera anchor".global_position = red.global_position
+
+func upgrade():
+	frozen = true
+	Engine.time_scale = 0
+	$hud/upgradeMenu.visible = true
+
+
 			
 func _physics_process(delta: float) -> void:
 	if !frozen:
@@ -93,3 +100,9 @@ func changeSpinSpeed(amt):
 		changeBlueSpinSpeed(amt)
 		changeRedSpinSpeed(amt)
 	
+
+
+func _on_enter_b_button_down() -> void:
+	frozen = false
+	Engine.time_scale=1
+	$hud/upgradeMenu.visible=false

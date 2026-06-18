@@ -60,7 +60,30 @@ offset_right = 564.0
 offset_bottom = 109.0
 script = ExtResource("4_qlg0r")
 
+[node name="upgradeMenu" type="Control" parent="hud"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="hud/upgradeMenu"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 54.0
+offset_right = 967.0
+offset_bottom = 595.0
+
+[node name="enterB" type="Button" parent="hud/upgradeMenu/Panel"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 497.0
+offset_right = 548.0
+offset_bottom = 528.0
+text = "OKAY"
+
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
 [connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]
+[connection signal="button_down" from="hud/upgradeMenu/Panel/enterB" to="." method="_on_enter_b_button_down"]
