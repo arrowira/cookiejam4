@@ -20,7 +20,7 @@ func initialize():
 	
 	#new ability! check
 	var new = false
-	if id!=1 and id!=2 and id!= 4:
+	if id == 3:
 		if player.upgrades[id-1] == 0:
 			$Panel2/Panel/NewUpgrade.visible = true
 			new = true
@@ -47,7 +47,7 @@ func initialize():
 		4:
 			bodyText = "gain more speed from a successful speed ring hit"
 		5:
-			bodyText = "rope"
+			bodyText = "Increase your rope length by ~6cm"
 	$Panel2/Panel/BodyText.text = bodyText
 	
 func _process(delta: float) -> void:

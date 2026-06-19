@@ -12,6 +12,8 @@ var speed = 1
 
 func _ready() -> void:
 	$healthBar.value = 100
+	
+	$Icon.modulate.b -= randf()/3.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
