@@ -172,4 +172,4 @@ func _on_enter_b_button_down() -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	pass # Replace with function body.
+	$hud/deathMenu.visible = true

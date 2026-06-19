@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=23 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cphvcx66sloj6" path="res://scripts/stopwatch.gd" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="9_d2wvv"]
 [ext_resource type="Shader" uid="uid://qg51gb6agxdq" path="res://vignette.gdshader" id="10_d2wvv"]
+[ext_resource type="Script" uid="uid://b13nsb8dsl7i4" path="res://scripts/death_menu.gd" id="11_a8ls1"]
 [ext_resource type="Script" uid="uid://dcvk5cp42b4hi" path="res://scripts/playerAudio.gd" id="12_a8ls1"]
 [ext_resource type="AudioStream" uid="uid://d13pll2n1nq6t" path="res://audio/universfield-swoosh-015-383769.mp3" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
@@ -75,6 +76,13 @@ _data = {
 &"in": SubResource("Animation_d2wvv"),
 &"out": SubResource("Animation_3v2ag")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfm1y"]
+bg_color = Color(0.2784314, 0.2784314, 0.2784314, 0.42352942)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
@@ -218,6 +226,31 @@ libraries = {
 }
 speed_scale = 5.0
 
+[node name="deathMenu" type="Control" parent="hud"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_a8ls1")
+
+[node name="Panel" type="Panel" parent="hud/deathMenu"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 239.0
+offset_right = 703.0
+offset_bottom = 421.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfm1y")
+
+[node name="Button" type="Button" parent="hud/deathMenu/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 114.0
+offset_right = 235.0
+offset_bottom = 171.0
+text = "RETRY
+"
+
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
 [node name="deathTimer" type="Timer" parent="."]
@@ -241,4 +274,5 @@ pitch_scale = 1.4
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
 [connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]
 [connection signal="button_down" from="hud/upgradeMenu/Panel/enterB" to="." method="_on_enter_b_button_down"]
+[connection signal="button_down" from="hud/deathMenu/Panel/Button" to="hud/deathMenu" method="_on_button_button_down"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
