@@ -19,8 +19,10 @@ func _process(delta: float) -> void:
 		$AnimationPlayer.play("walk")
 		if player.x<global_position.x:
 			$Icon.flip_h=false
+			$Icon/shadow.position = Vector2(0.8,7.8)
 		else:
 			$Icon.flip_h=true
+			$Icon/shadow.position = Vector2(-0.8,7.8)
 		
 		player = get_parent().get_parent().get_node("player").anchorPos
 	

@@ -81,8 +81,8 @@ void fragment()
 	vec2 px=pixelation*SCREEN_PIXEL_SIZE;
 	vec2 uv = (floor(UV/px)*px);
 
-	float focusMod = clamp((1.0-(1.0/(distance(uv, focusPoint)*50.0))), 0, 1);
-	uv = uv*focusMod;
+	//float focusMod = clamp((1.0-(1.0/(distance(uv, focusPoint)*50.0))), 0, 1);
+	//uv = uv*focusMod;
 
 
 	COLOR = shade(pattern(scale*uv + iTime*moveSpeed));

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ju1srch0urr3"]
+[gd_scene load_steps=11 format=3 uid="uid://ju1srch0urr3"]
 
 [ext_resource type="Script" uid="uid://ci8au2bb73kv8" path="res://scripts/grunt.gd" id="1_6upo6"]
 [ext_resource type="Texture2D" uid="uid://d174qmsna3vfk" path="res://sprites/Zombie_bettercontrast.webp" id="2_6upo6"]
+[ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="2_t8odd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6upo6"]
 size = Vector2(122, 123)
@@ -105,6 +106,13 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_6upo6")
 hframes = 10
 vframes = 3
+
+[node name="shadow" type="Sprite2D" parent="Icon"]
+modulate = Color(0.21176471, 0.18431373, 0.22352941, 0.50980395)
+z_index = -1
+position = Vector2(-0.9000002, 7.9)
+scale = Vector2(0.049999997, 0.015)
+texture = ExtResource("2_t8odd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
