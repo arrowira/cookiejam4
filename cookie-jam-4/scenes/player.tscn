@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="9_d2wvv"]
 [ext_resource type="Shader" uid="uid://qg51gb6agxdq" path="res://vignette.gdshader" id="10_d2wvv"]
 [ext_resource type="Script" uid="uid://dcvk5cp42b4hi" path="res://scripts/playerAudio.gd" id="12_a8ls1"]
-[ext_resource type="AudioStream" uid="uid://jn74310gjca4" path="res://audio/dash.wav" id="14_fulsm"]
+[ext_resource type="AudioStream" uid="uid://d13pll2n1nq6t" path="res://audio/universfield-swoosh-015-383769.mp3" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
 
@@ -225,8 +225,9 @@ speed_scale = 5.0
 [node name="audio" type="Node2D" parent="."]
 script = ExtResource("12_a8ls1")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="audio"]
-stream = ExtResource("14_fulsm")
+[node name="swoosh" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("13_oprun")
+volume_db = -40.0
 
 [node name="hit" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_4r5pv")

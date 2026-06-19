@@ -98,11 +98,15 @@ func _physics_process(delta: float) -> void:
 	if !frozen:
 		if anchor == "red":
 			if !dead:
+				if int($rSpin.rotation_degrees+20)%360 <5+rSpinSpeed:
+					audio.swoosh()
 				$rSpin.rotation_degrees += rSpinSpeed*Engine.time_scale
 			else:
 				$rSpin.position += (8.0*rSpinSpeed)*Vector2(cos($rSpin.rotation + PI/2),sin($rSpin.rotation + PI/2))
 		else:
 			if !dead:
+				if int($bSpin.rotation_degrees+200)%360 <5+rSpinSpeed:
+					audio.swoosh()
 				$bSpin.rotation_degrees += bSpinSpeed*Engine.time_scale
 			else:
 				$bSpin.position += (8.0*bSpinSpeed)*Vector2(cos($bSpin.rotation - PI/2),sin($bSpin.rotation - PI/2))
@@ -130,13 +134,16 @@ func hurt(color, amt):
 			blueHealth-=1
 
 func hit(color, body):
-	audio.hit()
-	var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
-	changeSpinSpeed(-0.1)
-	if color == "red":
-		body.damage(15*damageX)
-	elif color == "blue":
-		body.damage(15*damageX)
+	
+	if body.dead == false:
+		audio.hit()
+		
+		var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
+		changeSpinSpeed(-0.1)
+		if color == "red":
+			body.damage(15*damageX)
+		elif color == "blue":
+			body.damage(15*damageX)
 		
 func changeRope(dLength):
 	blue.position.x += dLength
