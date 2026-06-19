@@ -2,14 +2,21 @@ extends Node2D
 
 var red = false
 var blue = false
+
+var dying = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$AnimationPlayer.play("spin")
+	$Icon.frame=0
 
 
 func open():
-	get_parent().get_node("player").upgrade()
-	
+	if !dying:
+		get_parent().get_node("player").upgrade(self)
+		$Icon.frame=7
+		dying = true
+func consume():
+	$Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,3 +46,7 @@ func _on_area_2d_2_area_entered(area: Area2D) -> void:
 		open()
 	if area.get_parent().name == "blue":
 		open()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

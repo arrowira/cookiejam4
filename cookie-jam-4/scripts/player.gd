@@ -14,7 +14,7 @@ var frozen = false
 var upgrades = [0,0,0,0,0]
 var timeSlowLength = 1.0
 var dead=false
-
+var latestPickUp
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -63,7 +63,8 @@ func _process(delta: float) -> void:
 			$rSpin.global_position = red.global_position
 			$"camera anchor".global_position = red.global_position
 
-func upgrade():
+func upgrade(pickup):
+	latestPickUp=pickup
 	frozen = true
 	Engine.time_scale = 0.1
 	$hud/upgradeMenu/Panel/upgradeCard.initialize()
@@ -78,6 +79,7 @@ func upgrade():
 #4 = +speed from speed ring
 #5 = +rope length
 func upgradePart2():
+	latestPickUp.consume
 	upgrades[upgradeID-1]+=1
 	if upgradeID == 1:
 		#up red health

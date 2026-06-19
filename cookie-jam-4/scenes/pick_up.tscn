@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4gr2idt1j6bt"]
+[gd_scene load_steps=9 format=3 uid="uid://c4gr2idt1j6bt"]
 
 [ext_resource type="Script" uid="uid://cx1nq7w0g74pl" path="res://scripts/pick_up.gd" id="1_adew5"]
-[ext_resource type="Texture2D" uid="uid://dxemllkettkn5" path="res://icon.svg" id="2_tsqy0"]
+[ext_resource type="Texture2D" uid="uid://12socakcsds5" path="res://sprites/banana_pickup_sheet.webp" id="2_adew5"]
+[ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="3_tsqy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c87fy"]
 radius = 352.39325
@@ -9,22 +10,106 @@ radius = 352.39325
 [sub_resource type="CircleShape2D" id="CircleShape2D_adew5"]
 radius = 68.0294
 
+[sub_resource type="Animation" id="Animation_c87fy"]
+resource_name = "spin"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2990813),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5.9999995)]
+}
+
+[sub_resource type="Animation" id="Animation_a7jki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tsvk"]
+_data = {
+&"RESET": SubResource("Animation_a7jki"),
+&"spin": SubResource("Animation_c87fy")
+}
+
 [node name="PickUp" type="Node2D"]
 script = ExtResource("1_adew5")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_tsqy0")
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_adew5")
+hframes = 6
+vframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_c87fy")
 
 [node name="Area2D2" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_adew5")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8tsvk")
+}
+speed_scale = 0.2
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0.1254902, 0.105882354, 0.13333334, 0.5176471)
+z_index = -1
+position = Vector2(-2, 66)
+scale = Vector2(0.5, 0.15)
+texture = ExtResource("3_tsqy0")
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
