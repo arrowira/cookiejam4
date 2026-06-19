@@ -19,7 +19,9 @@ func _process(delta: float) -> void:
 			rotation = -PI/2
 		else:
 			rotation = PI/2
-	
+
+func die():
+	$AnimationPlayer.play("death")
 func anchor():
 	weapon = false
 	$AnimationPlayer.play("anchored")
