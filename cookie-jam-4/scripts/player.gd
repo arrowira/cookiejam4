@@ -79,7 +79,7 @@ func upgrade(pickup):
 #4 = +speed from speed ring
 #5 = +rope length
 func upgradePart2():
-	latestPickUp.consume
+	latestPickUp.consume()
 	upgrades[upgradeID-1]+=1
 	if upgradeID == 1:
 		#up red health

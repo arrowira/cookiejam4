@@ -16,6 +16,7 @@ func open():
 		$Icon.frame=7
 		dying = true
 func consume():
+	$AnimationPlayer.play("consume")
 	$Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
