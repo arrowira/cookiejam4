@@ -14,10 +14,11 @@ var t = 0
 var m = 1
 
 var abilityCD = false
+var summons = 2
 
 func spawnMinion():
 	var num = randi_range(2,6)
-	var distance = randf_range(200, 600)
+	var distance = randf_range(400, 800)
 	var angle = randf_range(0,7)
 	var grunt = pGrunt.instantiate()
 	grunt.global_position = Vector2(global_position.x+cos(angle)*distance,global_position.y+sin(angle)*distance)
@@ -32,7 +33,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !frozen:
+	if !frozen and !dead:
 		
 		
 		$AnimationPlayer.play("walk")
@@ -99,12 +100,14 @@ func _on_death_timer_timeout() -> void:
 
 
 func _on_ability_timeout() -> void:
-	if randf()<0.1 and !abilityCD:
+	if randf()<0.1 and !abilityCD and !dead and summons != 0:
 		$AnimationPlayer.play("ability")
-		m = randi_range(5,7)*10
+		m = randi_range(3,5)*10
 		frozen = true
+		summons-=1
 		abilityCD = true
 		$abCD.start()
+		$abilityAnimationTime.start()
 		spawnMinion()
 
 
