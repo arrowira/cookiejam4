@@ -11,17 +11,18 @@ var pGhost = preload("res://scenes/grunt_ghost.tscn")
 var pGrunt = preload("res://scenes/grunt.tscn")
 var speed = 0.6
 var t = 0
+var m = 1
 
 var abilityCD = false
 
-func spawnMinions():
+func spawnMinion():
 	var num = randi_range(2,6)
-	for i in range(num):	
-		var distance = randf_range(200, 600)
-		var angle = randf_range(0,7)
-		var grunt = pGrunt.instantiate()
-		grunt.global_position = Vector2(global_position.x+cos(angle)*distance,global_position.y+sin(angle)*distance)
-		get_parent().add_child(grunt)
+	var distance = randf_range(200, 600)
+	var angle = randf_range(0,7)
+	var grunt = pGrunt.instantiate()
+	grunt.global_position = Vector2(global_position.x+cos(angle)*distance,global_position.y+sin(angle)*distance)
+	get_parent().add_child(grunt)
+		
 	
 
 func _ready() -> void:
@@ -31,9 +32,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("i"):
-		spawnMinions()
 	if !frozen:
+		
+		
 		$AnimationPlayer.play("walk")
 		if player.x<global_position.x:
 			$Icon.flip_h=false
@@ -46,6 +47,12 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if m != 1:
+		m -=1
+	
+	if m%10 == 0:
+		spawnMinion()
+	
 	t+=0.02
 	rotation = 0
 	if !inKB and !frozen:
@@ -93,10 +100,18 @@ func _on_death_timer_timeout() -> void:
 
 func _on_ability_timeout() -> void:
 	if randf()<0.1 and !abilityCD:
+		$AnimationPlayer.play("ability")
+		m = randi_range(5,7)*10
+		frozen = true
 		abilityCD = true
 		$abCD.start()
-		spawnMinions()
+		spawnMinion()
 
 
 func _on_ab_cd_timeout() -> void:
 	abilityCD = false
+
+
+func _on_ability_animation_time_timeout() -> void:
+	frozen=false
+	
