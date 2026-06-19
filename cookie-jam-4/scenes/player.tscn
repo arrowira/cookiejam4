@@ -254,6 +254,7 @@ text = "RETRY
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
 [node name="deathTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="audio" type="Node2D" parent="."]
 script = ExtResource("12_a8ls1")

@@ -94,6 +94,8 @@ func upgradePart2():
 func _physics_process(delta: float) -> void:
 	if dead:
 		Engine.time_scale = $deathTimer.time_left
+		if $deathTimer.time_left < 0.5:
+			$hud/deathMenu.visible = true
 	
 	if !frozen:
 		if anchor == "red":
@@ -169,7 +171,3 @@ func _on_enter_b_button_down() -> void:
 	Engine.time_scale=1
 	upgradePart2()
 	$hud/upgradeMenu.visible=false
-
-
-func _on_death_timer_timeout() -> void:
-	$hud/deathMenu.visible = true
