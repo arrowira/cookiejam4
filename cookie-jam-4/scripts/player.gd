@@ -13,6 +13,8 @@ var frozen = false
 
 var upgrades = [0,0,0,0,0]
 var timeSlowLength = 1.0
+var dead=false
+
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -28,8 +30,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Line2D.set_point_position(0, blue.global_position)
-	$Line2D.set_point_position(1, red.global_position)
+	if !dead:
+		$Line2D.set_point_position(0, blue.global_position)
+		$Line2D.set_point_position(1, red.global_position)
 	anchorPos = $"camera anchor".position
 	
 	if Input.is_action_just_pressed("k"):
@@ -38,7 +41,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("x"):
 		$hud/stopwatch.startTime(timeSlowLength)
 	
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") and !dead:
 		changeSpinSpeed(-0.3 )
 		if anchor == "red":
 			circle.global_position = blue.global_position
@@ -91,6 +94,12 @@ func _physics_process(delta: float) -> void:
 			$rSpin.rotation_degrees += rSpinSpeed*Engine.time_scale
 		else:
 			$bSpin.rotation_degrees += bSpinSpeed*Engine.time_scale
+
+func death():
+	print("dead")
+	dead=true
+	
+	
 
 func hurt(color, amt):
 	$"camera anchor/shaker".shake(6,100)

@@ -117,6 +117,7 @@ offset_top = 8.0
 offset_right = 564.0
 offset_bottom = 57.0
 script = ExtResource("4_qlg0r")
+myColor = "red"
 
 [node name="blueHearts" type="Panel" parent="hud"]
 offset_left = 10.0

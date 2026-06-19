@@ -5,6 +5,8 @@ var hearts = []
 var pRHeart = preload("res://scenes/red_heart.tscn")
 var pBHeart = preload("res://scenes/blue_heart.tscn")
 var health = 0
+@export var myColor = "blue"
+
 
 func addHeart(color):
 	var heart
@@ -20,7 +22,14 @@ func addHeart(color):
 func takeDamage():
 	health -= 1
 	flipHeart(health,1)
+	if health == 0:
+		get_parent().get_parent().death()
 func heal():
+	if myColor == "red":
+		get_parent().get_parent().redHealth +=1
+	else:
+		get_parent().get_parent().blueHealth +=1
+	
 	health += 1
 	flipHeart(health-1,0)
 
