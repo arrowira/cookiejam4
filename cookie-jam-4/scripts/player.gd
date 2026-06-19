@@ -30,6 +30,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !dead:
+		$Line2D.set_point_position(0, blue.global_position)
+		$Line2D.set_point_position(1, red.global_position)
+	
 	anchorPos = $"camera anchor".position
 	
 	if Input.is_action_just_pressed("k"):
@@ -86,19 +90,24 @@ func upgradePart2():
 	elif upgradeID == 5:
 		changeRope(20)
 func _physics_process(delta: float) -> void:
-	
-	if !dead:
-		$Line2D.set_point_position(0, blue.global_position)
-		$Line2D.set_point_position(1, red.global_position)
+	if dead:
+		Engine.time_scale = $deathTimer.time_left
 	
 	if !frozen:
 		if anchor == "red":
-			$rSpin.rotation_degrees += rSpinSpeed*Engine.time_scale
+			if !dead:
+				$rSpin.rotation_degrees += rSpinSpeed*Engine.time_scale
+			else:
+				$rSpin.position += (8.0*rSpinSpeed)*Vector2(cos($rSpin.rotation + PI/2),sin($rSpin.rotation + PI/2))
 		else:
-			$bSpin.rotation_degrees += bSpinSpeed*Engine.time_scale
+			if !dead:
+				$bSpin.rotation_degrees += bSpinSpeed*Engine.time_scale
+			else:
+				$bSpin.position += (8.0*bSpinSpeed)*Vector2(cos($bSpin.rotation - PI/2),sin($bSpin.rotation - PI/2))
 
 func death():
 	print("dead")
+	$deathTimer.start()
 	circle.queue_free()
 	if anchor == "red":
 		$bSpin/red.die()
@@ -150,3 +159,7 @@ func _on_enter_b_button_down() -> void:
 	Engine.time_scale=1
 	upgradePart2()
 	$hud/upgradeMenu.visible=false
+
+
+func _on_death_timer_timeout() -> void:
+	pass # Replace with function body.
