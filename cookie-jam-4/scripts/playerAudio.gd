@@ -7,3 +7,5 @@ func anchor():
 	$plant.play()
 func swoosh():
 	$swoosh.play()
+func speed():
+	$speed.play()

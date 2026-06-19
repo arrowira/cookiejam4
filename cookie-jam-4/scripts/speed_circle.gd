@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		
 		#successes:
 		if c.rotation_degrees > 350 or c.rotation_degrees < 20:
+			$speed.play()
 			$expander.scale *= 1.2
 			get_parent().changeSpinSpeed(winBoost)
 	

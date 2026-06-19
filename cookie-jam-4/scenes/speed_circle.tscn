@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7i5fn25jotw8"]
+[gd_scene load_steps=9 format=3 uid="uid://c7i5fn25jotw8"]
 
 [ext_resource type="Texture2D" uid="uid://byv22wa005tqt" path="res://sprites/circle-outline-256.png" id="1_stvj4"]
 [ext_resource type="Script" uid="uid://crcy3l4b67s8x" path="res://scripts/speed_circle.gd" id="1_yafnj"]
 [ext_resource type="Texture2D" uid="uid://dchm3ispncs5i" path="res://sprites/circleRingSlice.png" id="4_5mbje"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="4_px4x8"]
+[ext_resource type="AudioStream" uid="uid://diro7xw1ybcos" path="res://audio/speedRingBonus.wav" id="5_px4x8"]
 
 [sub_resource type="Animation" id="Animation_px4x8"]
 length = 0.001
@@ -71,3 +72,8 @@ texture = ExtResource("4_px4x8")
 libraries = {
 &"": SubResource("AnimationLibrary_ov5ku")
 }
+
+[node name="speed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_px4x8")
+volume_db = -10.0
+pitch_scale = 1.3
