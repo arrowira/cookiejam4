@@ -9,7 +9,7 @@ uniform float bold = 10.0;
 uniform float sharp = 10.0;
 uniform float moveSpeed = 1.0;
 
-uniform vec2 focusPoint = vec2(0.5,0.5);
+uniform vec2 focusPoint = vec2(-100.0,0);
 
 #define iTime (TIME*timeMod)
 
