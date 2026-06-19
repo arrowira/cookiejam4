@@ -2,13 +2,16 @@ extends Control
 
 
 func startTime(length):
-	Engine.time_scale = 0.5
+	Engine.time_scale = 0.3
 	t = length
+	
 
-var t = -1
+var t = 0
 func _physics_process(delta: float) -> void:
-	t - 1/50.0
-	if t == 0:
+	if t!=0:
+		t -= 1/50.0
+	if t < 0:
+		print("end time")
 		#end timeslow
 		Engine.time_scale = 1
-		t-=1
+		t=0

@@ -12,7 +12,7 @@ var blueHealth = 3
 var frozen = false
 
 var upgrades = [0,0,0,0,0]
-var timeSlowLength = 0
+var timeSlowLength = 1.0
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -34,7 +34,9 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("k"):
 		changeRope(-20)
-		
+	
+	if Input.is_action_just_pressed("x"):
+		$hud/stopwatch.startTime(timeSlowLength)
 	
 	if Input.is_action_just_pressed("space"):
 		changeSpinSpeed(-0.3 )
@@ -86,9 +88,9 @@ func upgradePart2():
 func _physics_process(delta: float) -> void:
 	if !frozen:
 		if anchor == "red":
-			$rSpin.rotation_degrees += rSpinSpeed
+			$rSpin.rotation_degrees += rSpinSpeed*Engine.time_scale
 		else:
-			$bSpin.rotation_degrees += bSpinSpeed
+			$bSpin.rotation_degrees += bSpinSpeed*Engine.time_scale
 
 func hurt(color, amt):
 	$"camera anchor/shaker".shake(6,100)
