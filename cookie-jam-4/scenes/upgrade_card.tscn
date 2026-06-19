@@ -83,6 +83,8 @@ text = "NEW ABILITY!
 
 [node name="cardHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0hv3p")
+volume_db = -28.624
+pitch_scale = 1.37
 
 [connection signal="mouse_entered" from="Panel2" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel2" to="." method="_on_panel_mouse_exited"]
