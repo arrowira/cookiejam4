@@ -8,8 +8,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
 shader = ExtResource("5_tbgi4")
-shader_parameter/innerColor = Color(0.14528981, 0.2819339, 0.15823525, 1)
-shader_parameter/outerColor = Color(0.21587133, 0.34461752, 0.21589896, 1)
+shader_parameter/innerColor = Color(0.12620676, 0.29076695, 0.20514336, 1)
+shader_parameter/outerColor = Color(0.18666917, 0.3459273, 0.272182, 1)
 shader_parameter/scale = 25.0
 shader_parameter/timeMod = 0.0
 shader_parameter/pixelation = 1.0
