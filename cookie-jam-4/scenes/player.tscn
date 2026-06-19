@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=11 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dxeyjh4isglb3" path="res://scripts/shaker.gd" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b008by43qhutm" path="res://scenes/upgrade_card.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://c7i5fn25jotw8" path="res://scenes/speed_circle.tscn" id="6_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://s6ot3txl5eev" path="res://sprites/stopwatch-1.png.png" id="7_smehm"]
+[ext_resource type="Script" uid="uid://cphvcx66sloj6" path="res://scripts/stopwatch.gd" id="7_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="9_d2wvv"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
@@ -96,6 +99,38 @@ offset_left = 574.0
 offset_top = 277.0
 offset_right = 574.0
 offset_bottom = 277.0
+
+[node name="stopwatch" type="Control" parent="hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 61.0
+offset_top = 590.0
+offset_right = 101.0
+offset_bottom = 630.0
+script = ExtResource("7_y4r1p")
+
+[node name="Stopwatch1_png" type="Sprite2D" parent="hud/stopwatch"]
+texture_filter = 1
+position = Vector2(2, -8)
+scale = Vector2(4, 4)
+texture = ExtResource("7_smehm")
+
+[node name="minuteHand" type="Sprite2D" parent="hud/stopwatch"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -18)
+scale = Vector2(0.11999941, 1.24)
+texture = ExtResource("9_d2wvv")
+
+[node name="watchCenter" type="Control" parent="hud/stopwatch"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="secondHand" type="Sprite2D" parent="hud/stopwatch/watchCenter"]
+modulate = Color(1, 0.17979637, 0.33442876, 1)
+position = Vector2(-2.3841858e-07, -18)
+scale = Vector2(0.11999941, 1.24)
+texture = ExtResource("9_d2wvv")
 
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
 
