@@ -43,7 +43,7 @@ func death():
 	get_parent().add_child(ghost)
 	
 	$deathTimer.start()
-	$AnimationPlayer.play("die")
+	$AnimationPlayer.play("death")
 	$healthBar.visible = false
 	
 	
