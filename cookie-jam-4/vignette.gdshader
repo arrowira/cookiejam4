@@ -6,6 +6,8 @@ uniform float blur_amount : hint_range(0, 5) = 1.0; // Strength of the blur effe
 uniform float blur_inner : hint_range(0, 1) = 0.6; // Inner edge of the blur effect
 uniform float blur_outer : hint_range(0, 1) = 0.66; // Outer edge of the blur effect
 
+uniform float alpha = 1.0;
+
 void fragment() {
     // Original color of the pixel from the screen
     vec4 pixelColor = texture(screen_texture, UV);
@@ -31,4 +33,5 @@ void fragment() {
 	blurColor.rgb *= distance;
     // Set the final color to the modified color of the blur effect
     COLOR = blurColor;
+	COLOR.a *= alpha;
 }

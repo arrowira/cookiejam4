@@ -6,6 +6,7 @@ var slowLength = 0
 @onready var hand = $watchCenter
 func startTime(length):
 	if !inSlow:
+		$vigFade.play("in")
 		inSlow = true
 		slowLength = length
 		Engine.time_scale = 0.3
@@ -19,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		hand.rotation_degrees += 360/(50.0*slowLength)
 	if t < 0:
 		#end timeslow
+		$vigFade.play("out")
 		hand.rotation_degrees = 0
 		inSlow=false
 		Engine.time_scale = 1
