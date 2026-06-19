@@ -8,7 +8,7 @@ var frozen = false
 var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
-var speed = 1.5
+var speed = 0.6
 
 func _ready() -> void:
 	$healthBar.value = 100

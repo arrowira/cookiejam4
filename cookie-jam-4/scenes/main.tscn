@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dneomshoy6v48"]
+[gd_scene load_steps=8 format=3 uid="uid://dneomshoy6v48"]
 
 [ext_resource type="PackedScene" uid="uid://bw3ldb6e8p56j" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://c2oyj3tjpfivl" path="res://scenes/riffler.tscn" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://cnjga6vn8wc5j" path="res://scripts/enemy_manager.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c4gr2idt1j6bt" path="res://scenes/pick_up.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bchv7gqpiiehj" path="res://scenes/necromancer.tscn" id="4_tefeu"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="5_tbgi4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
@@ -31,6 +32,9 @@ autostart = true
 
 [node name="riffler" parent="EnemyManager" instance=ExtResource("3_jyhfs")]
 position = Vector2(-368, 307)
+
+[node name="necromancer" parent="EnemyManager" instance=ExtResource("4_tefeu")]
+position = Vector2(-523, -320)
 
 [node name="PickUp" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(642, -339)
