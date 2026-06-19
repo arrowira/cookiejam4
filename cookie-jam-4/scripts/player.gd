@@ -12,6 +12,7 @@ var blueHealth = 3
 var frozen = false
 
 var upgrades = [0,0,0,0,0]
+var timeSlowLength = 0
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -61,15 +62,27 @@ func upgrade():
 	$hud/upgradeMenu/Panel/upgradeCard2.initialize()
 	$hud/upgradeMenu.visible = true
 
+
+#id keys:
+#1 = red health up
+#2 = blue health up
+#3 = +0.5 sec time slow
+#4 = +speed from speed ring
+#5 = +rope length
 func upgradePart2():
 	upgrades[upgradeID-1]+=1
 	if upgradeID == 1:
 		#up red health
 		$hud/redHearts.addHeart("red")
-	if upgradeID == 2:
+	elif upgradeID == 2:
 		#up blue health
 		$hud/blueHearts.addHeart("blue")
-			
+	elif upgradeID == 3:
+		timeSlowLength+=0.5
+	elif upgradeID == 4:
+		circle.winBoost += 0.3
+	elif upgradeID == 5:
+		changeRope(20)
 func _physics_process(delta: float) -> void:
 	if !frozen:
 		if anchor == "red":
