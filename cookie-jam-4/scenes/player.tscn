@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=13 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://s6ot3txl5eev" path="res://sprites/stopwatch-1.png.png" id="7_smehm"]
 [ext_resource type="Script" uid="uid://cphvcx66sloj6" path="res://scripts/stopwatch.gd" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="9_d2wvv"]
+[ext_resource type="Shader" uid="uid://qg51gb6agxdq" path="res://vignette.gdshader" id="10_d2wvv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
+shader = ExtResource("10_d2wvv")
+shader_parameter/blur_radius = 0.37200001767
+shader_parameter/blur_amount = 1.9200000912
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.66
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_qhqgy")
@@ -108,6 +116,20 @@ offset_top = 590.0
 offset_right = 101.0
 offset_bottom = 630.0
 script = ExtResource("7_y4r1p")
+
+[node name="vignette" type="ColorRect" parent="hud/stopwatch"]
+material = SubResource("ShaderMaterial_3v2ag")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -592.0
+offset_right = 1056.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Stopwatch1_png" type="Sprite2D" parent="hud/stopwatch"]
 texture_filter = 1
