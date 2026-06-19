@@ -10,6 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$shadowswivel.global_rotation_degrees = 0.0
+	
 	if !weapon:
 		global_rotation_degrees = 0
 	else:
