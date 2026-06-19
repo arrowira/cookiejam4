@@ -9,6 +9,7 @@ var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
 var speed = 0.6
+var t = 0
 
 func _ready() -> void:
 	$healthBar.value = 100
@@ -30,10 +31,11 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	t+=0.02
 	rotation = 0
 	if !inKB and !frozen:
 		towardsPlayer = (player-global_position).normalized()
-		position+=towardsPlayer*speed*Engine.time_scale
+		position+=towardsPlayer*speed*Engine.time_scale + Vector2(cos(t), sin(t))
 
 func death():
 	dead = true
