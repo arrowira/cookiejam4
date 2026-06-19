@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b008by43qhutm"]
+[gd_scene load_steps=8 format=3 uid="uid://b008by43qhutm"]
 
 [ext_resource type="Script" uid="uid://dbk0bdwjbs7ev" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_ew4bf"]
 [ext_resource type="Script" uid="uid://dllae2umpdo2i" path="res://scripts/bouncyText.gd" id="3_fk0rn"]
+[ext_resource type="AudioStream" uid="uid://csl1uk0ovwt5r" path="res://audio/card_hover.wav" id="4_0hv3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew4bf"]
 bg_color = Color(0.6636995, 0.59361935, 0.42943144, 1)
@@ -79,6 +80,9 @@ offset_bottom = 281.0
 mouse_filter = 1
 text = "NEW ABILITY!
 "
+
+[node name="cardHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0hv3p")
 
 [connection signal="mouse_entered" from="Panel2" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel2" to="." method="_on_panel_mouse_exited"]

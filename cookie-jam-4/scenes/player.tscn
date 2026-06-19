@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=21 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="9_d2wvv"]
 [ext_resource type="Shader" uid="uid://qg51gb6agxdq" path="res://vignette.gdshader" id="10_d2wvv"]
 [ext_resource type="Script" uid="uid://dcvk5cp42b4hi" path="res://scripts/playerAudio.gd" id="12_a8ls1"]
-[ext_resource type="AudioStream" uid="uid://csl1uk0ovwt5r" path="res://audio/card_hover.wav" id="13_qfm1y"]
 [ext_resource type="AudioStream" uid="uid://jn74310gjca4" path="res://audio/dash.wav" id="14_fulsm"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
@@ -226,17 +225,17 @@ speed_scale = 5.0
 [node name="audio" type="Node2D" parent="."]
 script = ExtResource("12_a8ls1")
 
-[node name="cardHover" type="AudioStreamPlayer" parent="audio"]
-stream = ExtResource("13_qfm1y")
-
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("14_fulsm")
 
 [node name="hit" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_4r5pv")
+volume_db = -5.0
+pitch_scale = 1.2
 
 [node name="plant" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("16_60mlk")
+pitch_scale = 1.4
 
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
 [connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]

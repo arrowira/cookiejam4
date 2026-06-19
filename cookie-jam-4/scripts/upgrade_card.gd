@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 
 
 func _on_panel_mouse_entered() -> void:
+	$cardHover.play()
 	position.y -= 10
 	mouseIn = true
 

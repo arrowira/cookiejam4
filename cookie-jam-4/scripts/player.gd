@@ -19,6 +19,7 @@ var dead=false
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
 @onready var circle = $SpeedCircle
+@onready var audio = $audio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 		$hud/stopwatch.startTime(timeSlowLength)
 	
 	if Input.is_action_just_pressed("space") and !dead:
+		audio.anchor()
 		changeSpinSpeed(-0.3 )
 		if anchor == "red":
 			circle.global_position = blue.global_position
@@ -128,6 +130,7 @@ func hurt(color, amt):
 			blueHealth-=1
 
 func hit(color, body):
+	audio.hit()
 	var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
 	changeSpinSpeed(-0.1)
 	if color == "red":
