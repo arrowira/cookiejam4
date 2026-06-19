@@ -142,5 +142,14 @@ libraries = {
 }
 speed_scale = 0.3
 
+[node name="abCD" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ability" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="abCD" to="." method="_on_ab_cd_timeout"]
+[connection signal="timeout" from="ability" to="." method="_on_ability_timeout"]
