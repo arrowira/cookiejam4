@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://p1qo7h8nh76g"]
 
 [ext_resource type="Script" uid="uid://dts7juue23gjo" path="res://scripts/wizard_a.gd" id="1_0onml"]
-[ext_resource type="Texture2D" uid="uid://d174qmsna3vfk" path="res://sprites/Zombie_bettercontrast.webp" id="2_huwsb"]
+[ext_resource type="Texture2D" uid="uid://bv1klsjyq625" path="res://sprites/wizardASPrites.webp" id="2_0onml"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="3_ukpps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6upo6"]
@@ -127,15 +127,15 @@ modulate = Color(0.5411765, 0.7882353, 0.5137255, 1)
 texture_filter = 1
 position = Vector2(-1, -1)
 scale = Vector2(10, 10)
-texture = ExtResource("2_huwsb")
+texture = ExtResource("2_0onml")
 hframes = 10
 vframes = 3
 
 [node name="shadow" type="Sprite2D" parent="Icon"]
 modulate = Color(0.21176471, 0.18431373, 0.22352941, 0.50980395)
 z_index = -1
-position = Vector2(-0.9000002, 7.9)
-scale = Vector2(0.049999997, 0.015)
+position = Vector2(1.0000001, 16.300001)
+scale = Vector2(0.1, 0.03)
 texture = ExtResource("3_ukpps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
