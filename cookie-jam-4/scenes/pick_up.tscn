@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4gr2idt1j6bt"]
+[gd_scene load_steps=11 format=3 uid="uid://c4gr2idt1j6bt"]
 
 [ext_resource type="Script" uid="uid://cx1nq7w0g74pl" path="res://scripts/pick_up.gd" id="1_adew5"]
 [ext_resource type="Texture2D" uid="uid://12socakcsds5" path="res://sprites/banana_pickup_sheet.webp" id="2_adew5"]
@@ -113,6 +113,10 @@ _data = {
 &"spin": SubResource("Animation_c87fy")
 }
 
+[sub_resource type="Curve" id="Curve_tsqy0"]
+_data = [Vector2(0, 0.50561804), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="PickUp" type="Node2D"]
 script = ExtResource("1_adew5")
 
@@ -151,6 +155,20 @@ texture = ExtResource("3_tsqy0")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(2, 19)
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 70.93
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 61.86
+initial_velocity_max = 103.74
+scale_amount_max = 31.93
+scale_amount_curve = SubResource("Curve_tsqy0")
+color = Color(0.99472326, 0.78393286, 0.66302955, 1)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

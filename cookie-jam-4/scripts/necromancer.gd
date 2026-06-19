@@ -14,7 +14,7 @@ var t = 0
 var m = 1
 
 var abilityCD = false
-var summons = 2
+var summons = 1
 
 func spawnMinion():
 	var num = randi_range(2,6)
