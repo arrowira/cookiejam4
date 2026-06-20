@@ -67,7 +67,7 @@ func cast():
 
 func death():
 	#spawnXP
-	for i in range(randi_range(3,8)):
+	for i in range(6):
 		var xp = pXP.instantiate()
 		xp.global_position = global_position
 		xp.position.x += randf()*200 - 100

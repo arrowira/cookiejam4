@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 
 func death():
 	#spawnXP
-	for i in range(randi_range(1,3)):
+	for i in range(2):
 		var xp = pXP.instantiate()
 		xp.global_position = global_position
 		xp.position.x += randf()*50 - 25
