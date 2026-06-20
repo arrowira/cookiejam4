@@ -122,6 +122,8 @@ func _physics_process(delta: float) -> void:
 
 func death():
 	print("dead")
+	
+	$music.slow()
 	$deathTimer.start()
 	circle.queue_free()
 	if anchor == "red":

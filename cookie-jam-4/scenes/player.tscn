@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=27 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://d13pll2n1nq6t" path="res://audio/universfield-swoosh-015-383769.mp3" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
+[ext_resource type="AudioStream" uid="uid://c1em404866pkk" path="res://audio/over the top time slow sfx.mp3" id="17_qfm1y"]
+[ext_resource type="PackedScene" uid="uid://bml6pucoa670q" path="res://scenes/music.tscn" id="18_fulsm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
 shader = ExtResource("10_d2wvv")
@@ -285,7 +287,7 @@ script = ExtResource("12_a8ls1")
 
 [node name="swoosh" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("13_oprun")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="hit" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_4r5pv")
@@ -295,6 +297,14 @@ pitch_scale = 1.2
 [node name="plant" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("16_60mlk")
 pitch_scale = 1.4
+
+[node name="timeSlow" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("17_qfm1y")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="audio"]
+
+[node name="music" parent="." instance=ExtResource("18_fulsm")]
 
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
 [connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]

@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 	$shadow.frame = $Sprite2D.frame
 
 func _break():
+	$break.pitch_scale = 1.0 + randf()/5.0
+	$break.play()
 	z_index = -1000
 	$body.queue_free()
 	$CPUParticles2D.emitting = true

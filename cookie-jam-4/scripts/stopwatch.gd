@@ -6,6 +6,8 @@ var slowLength = 0
 @onready var hand = $watchCenter
 func startTime(length):
 	if !inSlow:
+		$"../../music".slow()
+		$"../../audio/timeSlow".play()
 		$vigFade.play("in")
 		inSlow = true
 		slowLength = length
@@ -20,6 +22,8 @@ func _physics_process(delta: float) -> void:
 		hand.rotation_degrees += 360/(50.0*slowLength)
 	if t < 0:
 		#end timeslow
+		$"../../music".normal()
+		$"../../audio/timeSlow".stop()
 		$vigFade.play("out")
 		hand.rotation_degrees = 0
 		inSlow=false
