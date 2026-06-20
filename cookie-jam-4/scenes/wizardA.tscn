@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p1qo7h8nh76g"]
+[gd_scene load_steps=12 format=3 uid="uid://p1qo7h8nh76g"]
 
 [ext_resource type="Script" uid="uid://dts7juue23gjo" path="res://scripts/wizard_a.gd" id="1_0onml"]
 [ext_resource type="Texture2D" uid="uid://bv1klsjyq625" path="res://sprites/wizardASPrites.webp" id="2_0onml"]
@@ -84,9 +84,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6jpsh"]
+resource_name = "cast"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.56666666, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 15, 14]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ukpps"]
 _data = {
 &"RESET": SubResource("Animation_huwsb"),
+&"cast": SubResource("Animation_6jpsh"),
 &"death": SubResource("Animation_ukpps"),
 &"walk": SubResource("Animation_0onml")
 }
@@ -123,9 +140,9 @@ shape = SubResource("RectangleShape2D_6upo6")
 
 [node name="healthBar" type="ProgressBar" parent="."]
 offset_left = -75.0
-offset_top = -83.0
+offset_top = -171.0
 offset_right = 71.0
-offset_bottom = -70.0
+offset_bottom = -158.0
 theme_override_styles/background = SubResource("StyleBoxFlat_6upo6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t8odd")
 show_percentage = false
@@ -140,5 +157,17 @@ libraries = {
 }
 speed_scale = 0.5
 
+[node name="behavior" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="castTime" type="Timer" parent="."]
+wait_time = 1.4
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="."]
+
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="behavior" to="." method="_on_behavior_timeout"]
+[connection signal="timeout" from="castTime" to="." method="_on_cast_time_timeout"]
