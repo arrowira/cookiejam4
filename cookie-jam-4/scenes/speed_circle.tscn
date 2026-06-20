@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7i5fn25jotw8"]
+[gd_scene load_steps=10 format=3 uid="uid://c7i5fn25jotw8"]
 
 [ext_resource type="Texture2D" uid="uid://byv22wa005tqt" path="res://sprites/circle-outline-256.png" id="1_stvj4"]
 [ext_resource type="Script" uid="uid://crcy3l4b67s8x" path="res://scripts/speed_circle.gd" id="1_yafnj"]
 [ext_resource type="Texture2D" uid="uid://dchm3ispncs5i" path="res://sprites/circleRingSlice.png" id="4_5mbje"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="4_px4x8"]
 [ext_resource type="AudioStream" uid="uid://diro7xw1ybcos" path="res://audio/speedRingBonus.wav" id="5_px4x8"]
+[ext_resource type="AudioStream" uid="uid://bpwxiuwe8cefh" path="res://audio/errorSFX.mp3" id="6_ov5ku"]
 
 [sub_resource type="Animation" id="Animation_px4x8"]
 length = 0.001
@@ -48,7 +49,7 @@ script = ExtResource("1_yafnj")
 [node name="expander" type="Node2D" parent="."]
 
 [node name="CircleOutline256" type="Sprite2D" parent="expander"]
-modulate = Color(1, 1, 1, 0.3254902)
+modulate = Color(0.46229059, 0.46229059, 0.46229059, 0.3254902)
 position = Vector2(0, -25)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_stvj4")
@@ -63,7 +64,7 @@ texture = ExtResource("4_5mbje")
 position = Vector2(0, -22)
 
 [node name="Icon" type="Sprite2D" parent="expander/center"]
-modulate = Color(0.4889701, 0.18525416, 0.12866339, 1)
+modulate = Color(0.36214927, 0.21380714, 0.4917602, 1)
 position = Vector2(-1, -135)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_px4x8")
@@ -77,3 +78,12 @@ libraries = {
 stream = ExtResource("5_px4x8")
 volume_db = -5.0
 pitch_scale = 1.3
+
+[node name="err" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ov5ku")
+volume_db = -5.0
+
+[node name="CD" type="Timer" parent="."]
+wait_time = 0.15
+
+[connection signal="timeout" from="CD" to="." method="_on_cd_timeout"]

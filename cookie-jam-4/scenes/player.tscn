@@ -235,6 +235,10 @@ libraries = {
 }
 speed_scale = 5.0
 
+[node name="CD" type="Timer" parent="hud/stopwatch"]
+wait_time = 4.0
+one_shot = true
+
 [node name="deathMenu" type="Control" parent="hud"]
 visible = false
 layout_mode = 3
@@ -313,5 +317,6 @@ volume_db = -20.0
 [connection signal="timeout" from="camera anchor/shaker/shakeCD" to="camera anchor/shaker" method="_on_shake_cd_timeout"]
 [connection signal="timeout" from="camera anchor/shaker/timeCD" to="camera anchor/shaker" method="_on_time_cd_timeout"]
 [connection signal="button_down" from="hud/upgradeMenu/Panel/enterB" to="." method="_on_enter_b_button_down"]
+[connection signal="timeout" from="hud/stopwatch/CD" to="hud/stopwatch" method="_on_cd_timeout"]
 [connection signal="button_down" from="hud/deathMenu/Panel/Button" to="hud/deathMenu" method="_on_button_button_down"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
