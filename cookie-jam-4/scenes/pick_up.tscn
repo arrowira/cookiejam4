@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4gr2idt1j6bt"]
+[gd_scene load_steps=10 format=3 uid="uid://c4gr2idt1j6bt"]
 
 [ext_resource type="Script" uid="uid://cx1nq7w0g74pl" path="res://scripts/pick_up.gd" id="1_adew5"]
-[ext_resource type="Texture2D" uid="uid://12socakcsds5" path="res://sprites/banana_pickup_sheet.webp" id="2_adew5"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="3_tsqy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c87fy"]
@@ -9,35 +8,6 @@ radius = 352.39325
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_adew5"]
 radius = 68.0294
-
-[sub_resource type="Animation" id="Animation_c87fy"]
-resource_name = "spin"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Icon:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2990813),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -5.9999995)]
-}
 
 [sub_resource type="Animation" id="Animation_a7jki"]
 length = 0.001
@@ -77,6 +47,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icon:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_tsqy0"]
 resource_name = "consume"
@@ -106,6 +88,35 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_c87fy"]
+resource_name = "spin"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2990813),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5.9999995)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tsvk"]
 _data = {
 &"RESET": SubResource("Animation_a7jki"),
@@ -121,11 +132,9 @@ point_count = 2
 script = ExtResource("1_adew5")
 
 [node name="Icon" type="Sprite2D" parent="."]
+z_index = 4
 texture_filter = 1
 scale = Vector2(10, 10)
-texture = ExtResource("2_adew5")
-hframes = 6
-vframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
