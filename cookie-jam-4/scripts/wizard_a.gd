@@ -8,27 +8,39 @@ var frozen = false
 var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
+var pXP = preload("res://scenes/xp_dot.tscn")
 var speed = 0.5
 
 var t = 0
 var isWalking = true
 var isCasting = false
 var orbIn = false
+var pOrb = preload("res://scenes/projectile.tscn")
 
 func _ready() -> void:
 	$healthBar.value = 100
 	
-	$Icon.modulate.b -= randf()/3.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !frozen:
+	
+	if !frozen and !dead:
+		if isCasting and !orbIn:
+			if $castTime.time_left < 0.5:
+				orbIn = true
+				var orb = pOrb.instantiate()
+				orb.global_position = $Icon/orbSpot.global_position
+				orb.rotation = atan2($Icon/orbSpot.global_position.y-player.y, $Icon/orbSpot.global_position.x-player.x)
+				get_parent().get_parent().add_child(orb)
+		
 		if isWalking:
 			$AnimationPlayer.play("walk")
 			if player.x<global_position.x:
 				$Icon.flip_h=false
 				$Icon/shadow.position = Vector2(0.8,16.3)
+				$Icon/orbSpot.position.x = -19.4
 			else:
+				$Icon/orbSpot.position.x = 19.4
 				$Icon.flip_h=true
 				$Icon/shadow.position = Vector2(-0.8,16.3)
 		else:
@@ -39,10 +51,12 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y/100.0
+	
 	t+=0.01
 	rotation = 0
+	towardsPlayer = (player-global_position).normalized()
 	if !inKB and !frozen and isWalking:
-		towardsPlayer = (player-global_position).normalized()
 		position+=towardsPlayer*speed*Engine.time_scale + (1.0)*Vector2(cos(t),sin(t))
 
 
@@ -52,6 +66,14 @@ func cast():
 	$AnimationPlayer.play("cast")
 
 func death():
+	#spawnXP
+	for i in range(6):
+		var xp = pXP.instantiate()
+		xp.global_position = global_position
+		xp.position.x += randf()*200 - 100
+		xp.position.y += randf()*200 - 100
+		get_parent().get_parent().add_child(xp)
+	
 	dead = true
 	frozen = true
 	var ghost = pGhost.instantiate()
@@ -96,9 +118,10 @@ func _on_behavior_timeout() -> void:
 	else:
 		if !isCasting:
 			isWalking=true
-	if !isWalking and randf() < 0.3:
+	if !isWalking and randf() < 0.5 and !isCasting:
 		cast()
 
 
 func _on_cast_time_timeout() -> void:
 	isCasting = false
+	orbIn = false

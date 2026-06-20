@@ -3,7 +3,7 @@ extends Node2D
 var anchor = "red"
 var bSpinSpeed = 5
 var rSpinSpeed = 5
-var anchorPos
+var anchorPos = Vector2.ZERO
 var upgradeID = 0
 
 var redHealth = 3
@@ -15,6 +15,10 @@ var upgrades = [0,0,0,0,0]
 var timeSlowLength = 1.0
 var dead=false
 var latestPickUp
+var xp = 0
+var maxXP = 100
+var lastEnemy
+var pBanana = preload("res://scenes/pick_up.tscn")
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -93,6 +97,7 @@ func upgradePart2():
 		circle.winBoost += 0.3
 	elif upgradeID == 5:
 		changeRope(20)
+
 func _physics_process(delta: float) -> void:
 	if dead:
 		Engine.time_scale = $deathTimer.time_left
@@ -125,17 +130,30 @@ func death():
 		$rSpin/blue.die()
 	dead=true
 	
+func addXP():
+	xp+=6
+	$hud/xpBar.value=xp
 	
+	if xp%maxXP != xp:
+		#level up
+		var banana = pBanana.instantiate()
+		banana.global_position = lastEnemy
+		get_parent().add_child(banana)
+		
+		xp = xp%maxXP
+		maxXP+=10
+		$hud/xpBar.max_value = maxXP
 
 func hurt(color, amt):
-	$"camera anchor/shaker".shake(6,100)
-	for i in range(amt):
-		if color == "red":
-			$hud/redHearts.takeDamage()
-			redHealth-=1
-		else:
-			$hud/blueHearts.takeDamage()
-			blueHealth-=1
+	if !dead:
+		$"camera anchor/shaker".shake(6,100)
+		for i in range(amt):
+			if color == "red":
+				$hud/redHearts.takeDamage()
+				redHealth-=1
+			else:
+				$hud/blueHearts.takeDamage()
+				blueHealth-=1
 
 func hit(color, body):
 	
@@ -148,6 +166,9 @@ func hit(color, body):
 			body.damage(15*damageX)
 		elif color == "blue":
 			body.damage(15*damageX)
+			
+		if body.dead:
+			lastEnemy = body.global_position
 		
 func changeRope(dLength):
 	blue.position.x += dLength
