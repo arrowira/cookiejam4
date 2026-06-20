@@ -133,6 +133,7 @@ func death():
 	dead=true
 	
 func addXP():
+	$audio.xp()
 	xp+=6
 	$hud/xpBar.value=xp
 	

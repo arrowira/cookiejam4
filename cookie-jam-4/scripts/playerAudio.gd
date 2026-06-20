@@ -9,3 +9,6 @@ func swoosh():
 	$swoosh.play()
 func speed():
 	$speed.play()
+func xp():
+	$sound.pitch_scale = 1.3 + randf()/5.0
+	$sound.play()
