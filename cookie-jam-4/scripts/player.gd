@@ -15,6 +15,8 @@ var upgrades = [0,0,0,0,0]
 var timeSlowLength = 1.0
 var dead=false
 var latestPickUp
+var xp = 0
+var maxXP = 100
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -93,6 +95,7 @@ func upgradePart2():
 		circle.winBoost += 0.3
 	elif upgradeID == 5:
 		changeRope(20)
+
 func _physics_process(delta: float) -> void:
 	if dead:
 		Engine.time_scale = $deathTimer.time_left
@@ -125,7 +128,13 @@ func death():
 		$rSpin/blue.die()
 	dead=true
 	
-	
+func addXP():
+	xp+=6
+	$hud/xpBar.value=xp
+	if xp%maxXP != xp:
+		xp = xp%maxXP
+		maxXP+=10
+		$hud/xpBar.max_value = maxXP
 
 func hurt(color, amt):
 	$"camera anchor/shaker".shake(6,100)

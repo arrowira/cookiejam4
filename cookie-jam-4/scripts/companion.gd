@@ -40,3 +40,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif body.get_node("stone") != null:
 		body.get_parent()._break()
 		#get_parent().get_parent().get_node("camera anchor").get_node("shaker").shake(3,10)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_node("xp") != null:
+		area.queue_free()
+		get_parent().get_parent().addXP()

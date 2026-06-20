@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dap8ltnh3xrxy"]
+[gd_scene load_steps=4 format=3 uid="uid://dap8ltnh3xrxy"]
 
 [ext_resource type="Script" uid="uid://bkvjttysgs4g6" path="res://scripts/xp_dot.gd" id="1_y6nh4"]
 [ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="2_im1ea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6nh4"]
+radius = 7.28011
 
 [node name="xpDot" type="Node2D"]
 script = ExtResource("1_y6nh4")
 
 [node name="Whitesquare1_png" type="Sprite2D" parent="."]
 position = Vector2(0, -5.9604645e-08)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_im1ea")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y6nh4")
+
+[node name="xp" type="Node2D" parent="Area2D"]
