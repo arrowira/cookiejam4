@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csbpiqhdktrbc" path="res://sprites/tombstone_sprites.webp" id="2_mweh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0vnt"]
-size = Vector2(139, 29)
+size = Vector2(139, 62)
 
 [node name="tombstone" type="Node2D"]
 script = ExtResource("1_c0vnt")
@@ -32,5 +32,5 @@ gravity_scale = 0.0
 [node name="stone" type="Node2D" parent="body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
-position = Vector2(-0.5, -14.5)
+position = Vector2(-0.5, -31)
 shape = SubResource("RectangleShape2D_c0vnt")
