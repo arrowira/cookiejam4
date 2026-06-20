@@ -299,7 +299,7 @@ pitch_scale = 1.4
 
 [node name="timeSlow" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("17_qfm1y")
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="audio"]
 

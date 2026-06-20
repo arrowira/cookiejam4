@@ -178,7 +178,7 @@ pitch_scale = 0.8
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_7x4sw")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 1.7
 
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]

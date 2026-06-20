@@ -41,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer*speed*Engine.time_scale
 
 func death():
+	$death.pitch_scale= 1 + randf()
+	$death.play()
+	
 	#spawnXP
 	for i in range(2):
 		var xp = pXP.instantiate()
