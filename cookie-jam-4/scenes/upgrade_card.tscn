@@ -60,13 +60,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_80nyk")
 [node name="BodyText" type="RichTextLabel" parent="Panel2/Panel"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 149.0
+offset_top = 120.0
 offset_right = 201.0
-offset_bottom = 286.0
+offset_bottom = 257.0
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 20
 text = "Ability description text that tells you what this ability does
 "
+horizontal_alignment = 1
 
 [node name="NewUpgrade" type="Node2D" parent="Panel2/Panel"]
 position = Vector2(105, 23)

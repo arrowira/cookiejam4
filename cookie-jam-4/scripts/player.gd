@@ -92,11 +92,13 @@ func upgradePart2():
 		#up blue health
 		$hud/blueHearts.addHeart("blue")
 	elif upgradeID == 3:
+		$hud/stopwatch.visible=true
 		timeSlowLength+=0.5
 	elif upgradeID == 4:
+		$SpeedCircle.visible=true
 		circle.winBoost += 0.3
 	elif upgradeID == 5:
-		changeRope(20)
+		changeRope(100)
 
 func _physics_process(delta: float) -> void:
 	if dead:

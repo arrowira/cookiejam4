@@ -3,6 +3,7 @@ extends Node2D
 @onready var c = $expander/center
 
 var winBoost = 1
+var inCD = false
 
 func _physics_process(delta: float) -> void:
 	
@@ -13,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	c.rotation_degrees += 5
 	c.rotation_degrees = int(c.rotation_degrees)%360
 	
-	if Input.is_action_just_pressed("c"):
+	if Input.is_action_just_pressed("c") and !inCD:
 		
 		#successes:
 		if c.rotation_degrees > 350 or c.rotation_degrees < 20:
@@ -23,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$CD.start()
 			$err.play()
+			inCD = true
 			modulate.r = 1
 			modulate.g = 0.3
 			modulate.b = 0.3
@@ -32,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_cd_timeout() -> void:
+	inCD = false
 	modulate.r = 1
 	modulate.g = 1
 	modulate.b = 1

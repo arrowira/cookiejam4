@@ -184,6 +184,7 @@ offset_right = 574.0
 offset_bottom = 277.0
 
 [node name="stopwatch" type="Control" parent="hud"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 61.0
@@ -283,6 +284,7 @@ text = "XP"
 horizontal_alignment = 1
 
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]
+visible = false
 
 [node name="deathTimer" type="Timer" parent="."]
 one_shot = true
