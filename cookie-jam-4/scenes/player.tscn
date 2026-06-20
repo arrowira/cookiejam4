@@ -291,8 +291,7 @@ volume_db = -20.0
 
 [node name="hit" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_4r5pv")
-volume_db = -30.0
-pitch_scale = 1.2
+volume_db = -25.0
 
 [node name="plant" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("16_60mlk")

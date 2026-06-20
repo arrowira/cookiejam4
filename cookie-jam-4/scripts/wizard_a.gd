@@ -62,10 +62,13 @@ func _physics_process(delta: float) -> void:
 
 func cast():
 	isCasting=true
+	$castSFX.play()
 	$castTime.start()
 	$AnimationPlayer.play("cast")
 
 func death():
+	$deathSFX.play()
+	
 	#spawnXP
 	for i in range(6):
 		var xp = pXP.instantiate()
@@ -118,7 +121,7 @@ func _on_behavior_timeout() -> void:
 	else:
 		if !isCasting:
 			isWalking=true
-	if !isWalking and randf() < 0.5 and !isCasting:
+	if !isWalking and randf() < 0.5 and !isCasting and !dead:
 		cast()
 
 

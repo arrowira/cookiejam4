@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://p1qo7h8nh76g"]
+[gd_scene load_steps=14 format=3 uid="uid://p1qo7h8nh76g"]
 
 [ext_resource type="Script" uid="uid://dts7juue23gjo" path="res://scripts/wizard_a.gd" id="1_0onml"]
 [ext_resource type="Texture2D" uid="uid://bv1klsjyq625" path="res://sprites/wizardASPrites.webp" id="2_0onml"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="3_ukpps"]
+[ext_resource type="AudioStream" uid="uid://btjwgoyjva7ru" path="res://audio/zombie hurt 1.mp3" id="4_huwsb"]
+[ext_resource type="AudioStream" uid="uid://b0p8m3v7pcevy" path="res://audio/wizard monk sound.mp3" id="5_ukpps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6upo6"]
 size = Vector2(122, 123)
@@ -170,6 +172,16 @@ wait_time = 1.4
 one_shot = true
 
 [node name="Timer3" type="Timer" parent="."]
+
+[node name="deathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_huwsb")
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="castSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ukpps")
+volume_db = -10.0
+pitch_scale = 0.8
 
 [connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]
 [connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
