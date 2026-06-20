@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1em404866pkk"
+path="res://.godot/imported/over the top time slow sfx.mp3-0858d2b89b2f10141ca1d19102eb7426.mp3str"
+
+[deps]
+
+source_file="res://audio/over the top time slow sfx.mp3"
+dest_files=["res://.godot/imported/over the top time slow sfx.mp3-0858d2b89b2f10141ca1d19102eb7426.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

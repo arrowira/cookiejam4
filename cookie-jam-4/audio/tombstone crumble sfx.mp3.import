@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpf2unn3fmuib"
+path="res://.godot/imported/tombstone crumble sfx.mp3-1e8ceb01a832b8d8880c96fa422c2a40.mp3str"
+
+[deps]
+
+source_file="res://audio/tombstone crumble sfx.mp3"
+dest_files=["res://.godot/imported/tombstone crumble sfx.mp3-1e8ceb01a832b8d8880c96fa422c2a40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

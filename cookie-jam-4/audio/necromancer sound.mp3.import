@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctmgv4nwuctco"
+path="res://.godot/imported/necromancer sound.mp3-f863ef0e6aa955e1db42e5ecb6d3e392.mp3str"
+
+[deps]
+
+source_file="res://audio/necromancer sound.mp3"
+dest_files=["res://.godot/imported/necromancer sound.mp3-f863ef0e6aa955e1db42e5ecb6d3e392.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

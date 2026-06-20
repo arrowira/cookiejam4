@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg18mstdp8tah"
+path="res://.godot/imported/zombie hurt 3.mp3-2531fd4cd735847bf5ad3917a185b3a3.mp3str"
+
+[deps]
+
+source_file="res://audio/zombie hurt 3.mp3"
+dest_files=["res://.godot/imported/zombie hurt 3.mp3-2531fd4cd735847bf5ad3917a185b3a3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
