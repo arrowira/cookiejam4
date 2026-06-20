@@ -11,6 +11,8 @@ var pGhost = preload("res://scenes/grunt_ghost.tscn")
 var speed = 1.5
 
 func _ready() -> void:
+	frozen=true
+	$spawnin.start()
 	$healthBar.value = 100
 	
 	$Icon.modulate.b -= randf()/3.0
@@ -37,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer*speed*Engine.time_scale
 
 func death():
+	$CollisionShape2D.queue_free()
 	dead = true
 	frozen = true
 	var ghost = pGhost.instantiate()
@@ -73,3 +76,7 @@ func _on_knockback_timeout() -> void:
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_spawnin_timeout() -> void:
+	frozen=false

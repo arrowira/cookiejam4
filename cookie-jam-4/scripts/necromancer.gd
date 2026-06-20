@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer*speed*Engine.time_scale + Vector2(cos(t), sin(t))
 
 func death():
+	$CollisionShape2D.queue_free()
 	dead = true
 	frozen = true
 	var ghost = pGhost.instantiate()

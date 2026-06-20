@@ -19,18 +19,17 @@ var pOrb = preload("res://scenes/projectile.tscn")
 func _ready() -> void:
 	$healthBar.value = 100
 	
-	$Icon.modulate.b -= randf()/3.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if !frozen:
+	if !frozen and !dead:
 		if isCasting and !orbIn:
 			if $castTime.time_left < 0.5:
 				orbIn = true
 				var orb = pOrb.instantiate()
 				orb.global_position = $Icon/orbSpot.global_position
-				orb.rotation = atan2(global_position.y-player.y, global_position.x-player.x)
+				orb.rotation = atan2($Icon/orbSpot.global_position.y-player.y, $Icon/orbSpot.global_position.x-player.x)
 				get_parent().get_parent().add_child(orb)
 		
 		if isWalking:
@@ -110,7 +109,7 @@ func _on_behavior_timeout() -> void:
 	else:
 		if !isCasting:
 			isWalking=true
-	if !isWalking and randf() < 0.3 and !isCasting:
+	if !isWalking and randf() < 0.5 and !isCasting:
 		cast()
 
 
