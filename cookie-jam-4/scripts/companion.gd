@@ -39,3 +39,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.knockback(30)
 	elif body.get_node("stone") != null:
 		body.get_parent()._break()
+		#get_parent().get_parent().get_node("camera anchor").get_node("shaker").shake(3,10)
