@@ -280,7 +280,7 @@ offset_right = 789.0
 offset_bottom = 27.0
 theme_override_styles/background = SubResource("StyleBoxFlat_a8ls1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fulsm")
-text = "XP"
+text = "level 0"
 horizontal_alignment = 1
 
 [node name="SpeedCircle" parent="." instance=ExtResource("6_tuyoq")]

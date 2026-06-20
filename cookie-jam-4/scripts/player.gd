@@ -19,6 +19,7 @@ var dead=false
 var latestPickUp
 var xp = 0
 var maxXP = 100
+var lvl = 0
 var lastEnemy
 var pBanana = preload("res://scenes/pick_up.tscn")
 
@@ -151,7 +152,8 @@ func addXP():
 		var banana = pBanana.instantiate()
 		banana.global_position = lastEnemy
 		get_parent().add_child(banana)
-		
+		lvl+=1
+		$hud/xpBar/text.text = "level " + str(lvl)
 		xp = xp%maxXP
 		maxXP+=10
 		$hud/xpBar.max_value = maxXP

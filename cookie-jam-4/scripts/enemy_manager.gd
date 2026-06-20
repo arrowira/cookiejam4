@@ -6,6 +6,8 @@ var pWizarda = preload("res://scenes/wizardA.tscn")
 var playerPos 
 var distance = 1500
 var wizards = 0
+var maxWizards = 0
+var w = 0
 
 var population = 0
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	w += 0.001
+	maxWizards = int(w)
 	playerPos = get_parent().get_node("player").anchorPos
 
 func _on_spawn_cd_timeout() -> void:
@@ -26,7 +30,7 @@ func _on_spawn_cd_timeout() -> void:
 		var necro = pNecro.instantiate()
 		necro.global_position = playerPos+distance*Vector2(cos(angle),sin(angle))
 		add_child(necro)
-	if fate == 3 and wizards<5:
+	if fate == 3 and wizards<maxWizards:
 		wizards+=1
 		population+=1
 		var wiz = pWizarda.instantiate()
