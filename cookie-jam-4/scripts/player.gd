@@ -8,10 +8,12 @@ var upgradeID = 0
 
 var redHealth = 3
 var blueHealth = 3
+var redDamageMod = 1
+var blueDamageMod = 1
 
 var frozen = false
 
-var upgrades = [0,0,0,0,0]
+var upgrades = [0,0,0,0,0,0,0]
 var timeSlowLength = 1.0
 var dead=false
 var latestPickUp
@@ -99,6 +101,11 @@ func upgradePart2():
 		circle.winBoost += 0.3
 	elif upgradeID == 5:
 		changeRope(100)
+	elif upgradeID == 6:
+		redDamageMod += 0.2
+	elif upgradeID == 7:
+		redDamageMod += 0.2
+		
 
 func _physics_process(delta: float) -> void:
 	if dead:
@@ -166,6 +173,10 @@ func hit(color, body):
 		audio.hit()
 		
 		var damageX = 2*((rSpinSpeed+bSpinSpeed)/10)
+		if color == "red":
+			damageX *= redDamageMod
+		else:
+			damageX *= blueDamageMod
 		changeSpinSpeed(-0.1)
 		if color == "red":
 			body.damage(15*damageX)

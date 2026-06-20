@@ -10,7 +10,7 @@ func _ready() -> void:
 	player = get_parent().get_parent().get_parent().get_parent()
 
 func initialize():
-	id = randi_range(1,5)
+	id = randi_range(1,7)
 	#id keys:
 	#1 = red health up
 	#2 = blue health up
@@ -36,9 +36,9 @@ func initialize():
 	var bodyText = ""
 	match id:
 		1:
-			bodyText = "add one heart to red's health"
+			bodyText = "add one heart to Red's health"
 		2:
-			bodyText = "add one heart to blue's health"
+			bodyText = "add one heart to Blue's health"
 		3:
 			if new:
 				bodyText = "when you press x, slow down time for 0.5 seconds"
@@ -51,6 +51,10 @@ func initialize():
 				bodyText = "gain more speed from a successful speed ring hit"
 		5:
 			bodyText = "Increase your rope length by ~6cm"
+		6: 
+			bodyText = "Red does more damage"
+		7:
+			bodyText = "Blue does more damage"
 	$Panel2/Panel/BodyText.text = bodyText
 	
 func _process(delta: float) -> void:
