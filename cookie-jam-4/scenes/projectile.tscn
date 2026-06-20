@@ -1,25 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://booqq73jehcn8"]
 
 [ext_resource type="Script" uid="uid://dgyd18r83b1w6" path="res://scripts/projectile.gd" id="1_q3m7n"]
-[ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="2_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://toreqpv3fkr1" path="res://sprites/wizard_projectile.png" id="2_q3m7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3m7n"]
 radius = 35.0
-
-[sub_resource type="Animation" id="Animation_q3m7n"]
-resource_name = "spawn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Circle256:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.3, 0.3)]
-}
 
 [sub_resource type="Animation" id="Animation_softn"]
 length = 0.001
@@ -34,6 +19,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_q3m7n"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle256:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26658964),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(10, 10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6q2a6"]
@@ -53,6 +53,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Circle256" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 5.9604645e-08)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("2_q3m7n")
@@ -61,5 +62,7 @@ texture = ExtResource("2_q3m7n")
 libraries = {
 &"": SubResource("AnimationLibrary_6q2a6")
 }
+
+[node name="proj" type="Node2D" parent="."]
 
 [connection signal="timeout" from="death" to="." method="_on_death_timeout"]

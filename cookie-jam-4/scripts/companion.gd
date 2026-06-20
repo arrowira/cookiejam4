@@ -47,3 +47,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if area.get_node("xp") != null:
 			area.get_parent().queue_free()
 			get_parent().get_parent().addXP()
+		if area.get_node("proj") != null:
+			get_parent().get_parent().hurt(color, 1)
+			area.queue_free()
