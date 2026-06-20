@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bynnv2trug03k"
+path="res://.godot/imported/wizrd monkey.mp3-d6e7b26fd13c5de3a2037187c72e864b.mp3str"
+
+[deps]
+
+source_file="res://audio/wizrd monkey.mp3"
+dest_files=["res://.godot/imported/wizrd monkey.mp3-d6e7b26fd13c5de3a2037187c72e864b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
