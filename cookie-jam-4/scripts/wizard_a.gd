@@ -14,6 +14,7 @@ var t = 0
 var isWalking = true
 var isCasting = false
 var orbIn = false
+var pOrb = preload("res://scenes/projectile.tscn")
 
 func _ready() -> void:
 	$healthBar.value = 100
@@ -22,13 +23,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if !frozen:
+		if isCasting and !orbIn:
+			if $castTime.time_left < 0.5:
+				orbIn = true
+				var orb = pOrb.instantiate()
+				orb.global_position = $Icon/orbSpot.global_position
+				get_parent().get_parent().add_child(orb)
+		
 		if isWalking:
 			$AnimationPlayer.play("walk")
 			if player.x<global_position.x:
 				$Icon.flip_h=false
 				$Icon/shadow.position = Vector2(0.8,16.3)
+				$Icon/orbSpot.position.x = -19.4
 			else:
+				$Icon/orbSpot.position.x = 19.4
 				$Icon.flip_h=true
 				$Icon/shadow.position = Vector2(-0.8,16.3)
 		else:
@@ -104,3 +115,4 @@ func _on_behavior_timeout() -> void:
 
 func _on_cast_time_timeout() -> void:
 	isCasting = false
+	orbIn = false

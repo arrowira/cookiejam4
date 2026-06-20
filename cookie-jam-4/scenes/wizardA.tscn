@@ -129,6 +129,10 @@ position = Vector2(1.0000001, 16.300001)
 scale = Vector2(0.1, 0.03)
 texture = ExtResource("3_ukpps")
 
+[node name="orbSpot" type="Node2D" parent="Icon"]
+position = Vector2(-19.399998, -0.099999994)
+scale = Vector2(0.099999994, 0.029999996)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -2.5)
