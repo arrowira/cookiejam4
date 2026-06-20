@@ -63,6 +63,8 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer*speed*Engine.time_scale + Vector2(cos(t), sin(t))
 
 func death():
+	$death.play()
+	
 	#spawnXP
 	for i in range(3):
 		var xp = pXP.instantiate()
@@ -113,6 +115,7 @@ func _on_death_timer_timeout() -> void:
 func _on_ability_timeout() -> void:
 	if randf()<0.1 and !abilityCD and !dead and summons != 0:
 		$AnimationPlayer.play("ability")
+		$cast.play()
 		m = randi_range(3,5)*10
 		frozen = true
 		summons-=1
