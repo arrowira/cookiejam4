@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3pf1cmxwcyor"]
+[gd_scene load_steps=7 format=3 uid="uid://d3pf1cmxwcyor"]
 
 [ext_resource type="Shader" uid="uid://daf1jlnclj7vw" path="res://ghost.gdshader" id="1_0l6xh"]
 [ext_resource type="Script" uid="uid://d3oaquk0mljun" path="res://scripts/ghost.gd" id="1_nst1s"]
-[ext_resource type="Texture2D" uid="uid://bedyftmx7v4dr" path="res://sprites/Zombie_Monkey_Sprite_Sheet.webp" id="2_0l6xh"]
+[ext_resource type="Texture2D" uid="uid://d2l5261sm23mi" path="res://sprites/Zombie_spritesheet.webp" id="2_0l6xh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbj63"]
 shader = ExtResource("1_0l6xh")
@@ -14,6 +14,9 @@ shader = ExtResource("1_0l6xh")
 shader_parameter/tex = ExtResource("2_0l6xh")
 shader_parameter/alpha = 0.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cbj63"]
+load_path = "res://.godot/imported/Zombie_Monkey_Sprite_Sheet.webp-08fd6d17953f8db90ebcf8385a910d70.ctex"
+
 [node name="gruntGhost" type="Node2D"]
 material = SubResource("ShaderMaterial_cbj63")
 script = ExtResource("1_nst1s")
@@ -24,6 +27,6 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_0l6xh")
 position = Vector2(-1, -1)
 scale = Vector2(10, 10)
-texture = ExtResource("2_0l6xh")
+texture = SubResource("CompressedTexture2D_cbj63")
 hframes = 10
 vframes = 3

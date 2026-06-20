@@ -15,6 +15,7 @@ var pXP = preload("res://scenes/xp_dot.tscn")
 func _ready() -> void:
 	frozen=true
 	$spawnin.start()
+	$AnimationPlayer.play("spawn")
 	$healthBar.value = 100
 	
 	$Icon.modulate.b -= randf()/3.0

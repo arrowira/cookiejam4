@@ -119,7 +119,7 @@ tracks/0/path = NodePath("Icon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
@@ -183,7 +183,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="spawnin" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.9
 one_shot = true
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
