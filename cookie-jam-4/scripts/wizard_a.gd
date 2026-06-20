@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 				orbIn = true
 				var orb = pOrb.instantiate()
 				orb.global_position = $Icon/orbSpot.global_position
+				orb.rotation = atan2(global_position.y-player.y, global_position.x-player.x)
 				get_parent().get_parent().add_child(orb)
 		
 		if isWalking:
@@ -54,8 +55,8 @@ func _physics_process(delta: float) -> void:
 	
 	t+=0.01
 	rotation = 0
+	towardsPlayer = (player-global_position).normalized()
 	if !inKB and !frozen and isWalking:
-		towardsPlayer = (player-global_position).normalized()
 		position+=towardsPlayer*speed*Engine.time_scale + (1.0)*Vector2(cos(t),sin(t))
 
 
@@ -109,7 +110,7 @@ func _on_behavior_timeout() -> void:
 	else:
 		if !isCasting:
 			isWalking=true
-	if !isWalking and randf() < 0.3:
+	if !isWalking and randf() < 0.3 and !isCasting:
 		cast()
 
 
