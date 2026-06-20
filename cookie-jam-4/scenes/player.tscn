@@ -285,11 +285,11 @@ script = ExtResource("12_a8ls1")
 
 [node name="swoosh" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("13_oprun")
-volume_db = -40.0
+volume_db = -10.0
 
 [node name="hit" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("15_4r5pv")
-volume_db = -35.0
+volume_db = -30.0
 pitch_scale = 1.2
 
 [node name="plant" type="AudioStreamPlayer" parent="audio"]
