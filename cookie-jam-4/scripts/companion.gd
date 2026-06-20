@@ -37,3 +37,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			get_parent().get_parent().hurt(color, 1)
 			body.knockback(30)
+	elif body.get_node("stone") != null:
+		body.get_parent()._break()
