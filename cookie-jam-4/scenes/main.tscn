@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dneomshoy6v48"]
+[gd_scene load_steps=10 format=3 uid="uid://dneomshoy6v48"]
 
 [ext_resource type="PackedScene" uid="uid://bw3ldb6e8p56j" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cnjga6vn8wc5j" path="res://scripts/enemy_manager.gd" id="3_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bd28s0f0f5bor" path="res://scenes/tombstone.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://csk8ysmbebmqc" path="res://scripts/stone_spawner.gd" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dap8ltnh3xrxy" path="res://scenes/xp_dot.tscn" id="8_tipki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
 shader = ExtResource("5_tbgi4")
@@ -50,5 +51,8 @@ position = Vector2(352, -500)
 
 [node name="stoneSpawner" type="Node2D" parent="."]
 script = ExtResource("7_o6xl0")
+
+[node name="xpDot" parent="." instance=ExtResource("8_tipki")]
+position = Vector2(325, -223)
 
 [connection signal="timeout" from="EnemyManager/spawnCD" to="EnemyManager" method="_on_spawn_cd_timeout"]

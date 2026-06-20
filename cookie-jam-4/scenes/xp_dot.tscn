@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dap8ltnh3xrxy"]
+
+[ext_resource type="Script" uid="uid://bkvjttysgs4g6" path="res://scripts/xp_dot.gd" id="1_y6nh4"]
+[ext_resource type="Texture2D" uid="uid://c46siv2ekw3n5" path="res://sprites/whitesquare-1.png.png" id="2_im1ea"]
+
+[node name="xpDot" type="Node2D"]
+script = ExtResource("1_y6nh4")
+
+[node name="Whitesquare1_png" type="Sprite2D" parent="."]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_im1ea")

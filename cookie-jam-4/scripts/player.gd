@@ -3,7 +3,7 @@ extends Node2D
 var anchor = "red"
 var bSpinSpeed = 5
 var rSpinSpeed = 5
-var anchorPos
+var anchorPos = Vector2.ZERO
 var upgradeID = 0
 
 var redHealth = 3
