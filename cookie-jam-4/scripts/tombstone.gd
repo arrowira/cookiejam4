@@ -12,5 +12,7 @@ func _process(delta: float) -> void:
 	$shadow.frame = $Sprite2D.frame
 
 func _break():
+	z_index = -1000
 	$body.queue_free()
-	$Sprite2D.frame = randi_range(1,5)*5+3
+	$CPUParticles2D.emitting = true
+	$Sprite2D.frame = randi_range(1,4)*5+3
