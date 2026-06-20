@@ -43,6 +43,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_node("xp") != null:
-		area.queue_free()
-		get_parent().get_parent().addXP()
+	if !weapon:
+		if area.get_node("xp") != null:
+			area.get_parent().queue_free()
+			get_parent().get_parent().addXP()

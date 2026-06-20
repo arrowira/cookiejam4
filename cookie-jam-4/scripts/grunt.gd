@@ -9,6 +9,8 @@ var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
 var speed = 1.5
+var pXP = preload("res://scenes/xp_dot.tscn")
+
 
 func _ready() -> void:
 	frozen=true
@@ -39,6 +41,15 @@ func _physics_process(delta: float) -> void:
 		position+=towardsPlayer*speed*Engine.time_scale
 
 func death():
+	#spawnXP
+	for i in range(randi_range(1,3)):
+		var xp = pXP.instantiate()
+		xp.global_position = global_position
+		xp.position.x += randf()*50 - 25
+		xp.position.y += randf()*50 - 25
+		get_parent().get_parent().add_child(xp)
+	
+	
 	$CollisionShape2D.queue_free()
 	dead = true
 	frozen = true

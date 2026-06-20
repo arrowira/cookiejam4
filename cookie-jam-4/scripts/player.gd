@@ -132,6 +132,7 @@ func addXP():
 	xp+=6
 	$hud/xpBar.value=xp
 	if xp%maxXP != xp:
+		#level up
 		xp = xp%maxXP
 		maxXP+=10
 		$hud/xpBar.max_value = maxXP

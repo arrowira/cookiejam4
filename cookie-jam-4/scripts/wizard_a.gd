@@ -8,6 +8,7 @@ var frozen = false
 var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
+var pXP = preload("res://scenes/xp_dot.tscn")
 var speed = 0.5
 
 var t = 0
@@ -65,6 +66,14 @@ func cast():
 	$AnimationPlayer.play("cast")
 
 func death():
+	#spawnXP
+	for i in range(randi_range(3,8)):
+		var xp = pXP.instantiate()
+		xp.global_position = global_position
+		xp.position.x += randf()*200 - 100
+		xp.position.y += randf()*200 - 100
+		get_parent().get_parent().add_child(xp)
+	
 	dead = true
 	frozen = true
 	var ghost = pGhost.instantiate()
