@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4gr2idt1j6bt"]
+[gd_scene load_steps=11 format=3 uid="uid://c4gr2idt1j6bt"]
 
 [ext_resource type="Script" uid="uid://cx1nq7w0g74pl" path="res://scripts/pick_up.gd" id="1_adew5"]
+[ext_resource type="Texture2D" uid="uid://bsujfwqp2k85c" path="res://sprites/banan.png" id="2_tsqy0"]
 [ext_resource type="Texture2D" uid="uid://bwe16hdrivfkt" path="res://sprites/circle-256.png" id="3_tsqy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c87fy"]
@@ -134,7 +135,9 @@ script = ExtResource("1_adew5")
 [node name="Icon" type="Sprite2D" parent="."]
 z_index = 4
 texture_filter = 1
-scale = Vector2(10, 10)
+scale = Vector2(9.645833, 9.4375)
+texture = ExtResource("2_tsqy0")
+offset = Vector2(2, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
