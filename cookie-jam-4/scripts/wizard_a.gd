@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y/100.0
+	
 	t+=0.01
 	rotation = 0
 	if !inKB and !frozen and isWalking:

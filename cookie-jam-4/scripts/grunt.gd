@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y/100.0
 	rotation = 0
 	if !inKB and !frozen:
 		towardsPlayer = (player-global_position).normalized()

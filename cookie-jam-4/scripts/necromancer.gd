@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	z_index = global_position.y/100.0
 	if m != 1:
 		m -=1
 	
