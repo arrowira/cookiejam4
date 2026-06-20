@@ -67,6 +67,7 @@ func cast():
 	$AnimationPlayer.play("cast")
 
 func death():
+	get_parent().wizards-=1
 	$deathSFX.play()
 	
 	#spawnXP
