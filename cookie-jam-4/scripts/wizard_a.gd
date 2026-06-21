@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	rotation = 0
 	towardsPlayer = (player-global_position).normalized()
 	if !inKB and !frozen and isWalking:
-		position+=towardsPlayer*speed*Engine.time_scale + (1.0)*Vector2(cos(t),sin(t))
+		position+=towardsPlayer*speed*Engine.time_scale + (1.0)*Vector2(cos(t),sin(t))*Engine.time_scale
 
 
 func cast():
