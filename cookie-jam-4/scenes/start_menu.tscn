@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8iq82x1y8dpm"]
+[gd_scene load_steps=10 format=3 uid="uid://b8iq82x1y8dpm"]
 
 [ext_resource type="Script" uid="uid://mivxtrbtbibc" path="res://scripts/start_menu.gd" id="1_thu50"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_thu50"]
 [ext_resource type="FontFile" uid="uid://babqsgevqu6n1" path="res://Cave-Story.ttf" id="3_m7x51"]
+[ext_resource type="Script" uid="uid://cdm5cv8vf4r61" path="res://scripts/settings.gd" id="4_4v6gu"]
 [ext_resource type="Texture2D" uid="uid://cgsc80oeatyu4" path="res://sprites/blue_monkey_sprite_sheet.png" id="4_fcv5n"]
 [ext_resource type="Texture2D" uid="uid://bvpjn4g3x3h5g" path="res://sprites/red_monkey_sprite_sheet-export.webp" id="5_4v6gu"]
+[ext_resource type="AudioStream" uid="uid://c08mmyob7jlug" path="res://audio/menuMusic.mp3" id="7_nxjfj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m7x51"]
 shader = ExtResource("2_thu50")
@@ -79,6 +81,7 @@ position_smoothing_speed = 3.0
 
 [node name="settingsAnchor" type="Node2D" parent="."]
 position = Vector2(1457, 0)
+script = ExtResource("4_4v6gu")
 
 [node name="back" type="Button" parent="settingsAnchor"]
 offset_left = -559.0
@@ -182,6 +185,12 @@ One monkey will spin the other monkey around on a rope.
 Use the swinging monkey to hit enemies and get XP.
 
 When you level up, a banan will spawn. Hit the banana to get an upgrade"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nxjfj")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
 
 [connection signal="button_down" from="Panel/startB" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="Panel/settingsB" to="." method="_on_settings_b_button_down"]
