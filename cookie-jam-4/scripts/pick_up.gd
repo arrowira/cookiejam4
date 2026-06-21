@@ -27,8 +27,9 @@ func _process(delta: float) -> void:
 			open()
 func _physics_process(delta: float) -> void:
 	t+=0.01
-	var towardsPlayer = get_parent().get_node("player").anchorPos - global_position
-	position += towardsPlayer.normalized()*2*t*Engine.time_scale
+	if !dying:
+		var towardsPlayer = get_parent().get_node("player").anchorPos - global_position
+		position += towardsPlayer.normalized()*2*t*Engine.time_scale
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

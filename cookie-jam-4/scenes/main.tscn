@@ -12,9 +12,9 @@
 shader = ExtResource("5_tbgi4")
 shader_parameter/innerColor = Color(0.12620676, 0.29076695, 0.20514336, 1)
 shader_parameter/outerColor = Color(0.18666917, 0.3459273, 0.272182, 1)
-shader_parameter/scale = 25.0
+shader_parameter/scale = 250.0
 shader_parameter/timeMod = 0.0
-shader_parameter/pixelation = 1.0
+shader_parameter/pixelation = 0.1
 shader_parameter/bold = 4.0
 shader_parameter/sharp = 3.0
 shader_parameter/moveSpeed = 1.0
@@ -39,8 +39,8 @@ z_index = -4096
 material = SubResource("ShaderMaterial_tefeu")
 offset_left = -9693.0
 offset_top = -4678.0
-offset_right = 10307.0
-offset_bottom = 5322.0
+offset_right = 190307.0
+offset_bottom = 95322.0
 
 [node name="tombstone" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(352, -500)

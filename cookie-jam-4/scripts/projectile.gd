@@ -10,8 +10,7 @@ func _ready() -> void:
 var t = 0
 func _physics_process(delta: float) -> void:
 	t+=0.1
-	if !dying:
-		position += speed*Vector2(-cos(rotation), -sin(rotation))*Engine.time_scale
+	position += speed*Vector2(-cos(rotation), -sin(rotation))*Engine.time_scale
 	
 	#friction
 	speed = (targetSpeed*t+1)/(t+3)*10
