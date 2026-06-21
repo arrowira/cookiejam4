@@ -109,6 +109,8 @@ func upgradePart2():
 		
 
 func _physics_process(delta: float) -> void:
+	blue.animSpeed = bSpinSpeed/12.0
+	red.animSpeed = rSpinSpeed/12.0
 	if dead:
 		Engine.time_scale = $deathTimer.time_left
 		if $deathTimer.time_left < 0.5:
