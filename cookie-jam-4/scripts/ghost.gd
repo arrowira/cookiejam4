@@ -1,7 +1,7 @@
 extends Node2D
 
-var t = 200.0
-var maxT = 200.0
+var t = 500.0
+var maxT = 500.0
 
 var ghostShader = preload("res://ghost.gdshader")
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	$Icon.get_material().set_shader_parameter("alpha", t/maxT)
+	$Icon.get_material().set_shader_parameter("alpha", 1)
 	
 	position.y-=5
 	t-=1
