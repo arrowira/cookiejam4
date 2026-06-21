@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b008by43qhutm"]
+[gd_scene load_steps=9 format=3 uid="uid://b008by43qhutm"]
 
 [ext_resource type="Script" uid="uid://dbk0bdwjbs7ev" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_ew4bf"]
 [ext_resource type="Script" uid="uid://dllae2umpdo2i" path="res://scripts/bouncyText.gd" id="3_fk0rn"]
 [ext_resource type="AudioStream" uid="uid://csl1uk0ovwt5r" path="res://audio/card_hover.wav" id="4_0hv3p"]
+[ext_resource type="FontFile" uid="uid://babqsgevqu6n1" path="res://Cave-Story.ttf" id="4_igsks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew4bf"]
 bg_color = Color(0.6636995, 0.59361935, 0.42943144, 1)
@@ -58,13 +59,15 @@ offset_bottom = 303.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_80nyk")
 
 [node name="BodyText" type="RichTextLabel" parent="Panel2/Panel"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 120.0
 offset_right = 201.0
-offset_bottom = 257.0
+offset_bottom = 295.0
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 20
+theme_override_fonts/normal_font = ExtResource("4_igsks")
+theme_override_font_sizes/normal_font_size = 30
 text = "Ability description text that tells you what this ability does
 "
 horizontal_alignment = 1
@@ -79,8 +82,12 @@ offset_top = -12.0
 offset_right = 51.0
 offset_bottom = 281.0
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.8855928, 0.7515964, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_igsks")
+theme_override_font_sizes/normal_font_size = 30
 text = "NEW ABILITY!
 "
+horizontal_alignment = 1
 
 [node name="cardHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0hv3p")

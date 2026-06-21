@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var c = $expander/center
 
-var winBoost = 1
+var winBoost = 0.5
 var inCD = false
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$CD.start()
 			$err.play()
+			get_parent().changeSpinSpeed(-0.5)
 			inCD = true
 			modulate.r = 1
 			modulate.g = 0.3
