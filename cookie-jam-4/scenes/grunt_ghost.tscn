@@ -12,7 +12,7 @@ shader_parameter/alpha = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0l6xh"]
 shader = ExtResource("1_0l6xh")
 shader_parameter/tex = ExtResource("2_0l6xh")
-shader_parameter/alpha = 0.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cbj63"]
 load_path = "res://.godot/imported/Zombie_Monkey_Sprite_Sheet.webp-08fd6d17953f8db90ebcf8385a910d70.ctex"
@@ -22,11 +22,10 @@ material = SubResource("ShaderMaterial_cbj63")
 script = ExtResource("1_nst1s")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.8156863, 0.78431374, 0.7882353, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_0l6xh")
 position = Vector2(-1, -1)
 scale = Vector2(10, 10)
 texture = SubResource("CompressedTexture2D_cbj63")
 hframes = 10
-vframes = 3
+vframes = 4
