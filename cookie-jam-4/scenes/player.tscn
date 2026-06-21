@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=33 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://qg51gb6agxdq" path="res://vignette.gdshader" id="10_d2wvv"]
 [ext_resource type="Script" uid="uid://b13nsb8dsl7i4" path="res://scripts/death_menu.gd" id="11_a8ls1"]
 [ext_resource type="Script" uid="uid://dcvk5cp42b4hi" path="res://scripts/playerAudio.gd" id="12_a8ls1"]
+[ext_resource type="FontFile" uid="uid://babqsgevqu6n1" path="res://Cave-Story.ttf" id="12_l71n6"]
 [ext_resource type="AudioStream" uid="uid://d13pll2n1nq6t" path="res://audio/universfield-swoosh-015-383769.mp3" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
@@ -246,7 +247,6 @@ wait_time = 4.0
 one_shot = true
 
 [node name="deathMenu" type="Control" parent="hud"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -267,8 +267,30 @@ offset_left = 11.0
 offset_top = 114.0
 offset_right = 235.0
 offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("12_l71n6")
+theme_override_font_sizes/font_size = 40
 text = "RETRY
 "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="hud/deathMenu/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 208.0
+offset_bottom = 95.0
+theme_override_fonts/normal_font = ExtResource("12_l71n6")
+theme_override_font_sizes/normal_font_size = 40
+text = "TIME ALIVE:"
+
+[node name="time" type="RichTextLabel" parent="hud/deathMenu/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 209.0
+offset_bottom = 94.0
+theme_override_fonts/normal_font = ExtResource("12_l71n6")
+theme_override_font_sizes/normal_font_size = 35
+text = "100000"
 
 [node name="xpBar" type="ProgressBar" parent="hud"]
 offset_left = 183.0

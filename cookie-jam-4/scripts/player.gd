@@ -23,6 +23,7 @@ var maxXP = 100
 var lvl = 0
 var lastEnemy
 var pBanana = preload("res://scenes/pick_up.tscn")
+var timeAlive = 0
 
 @onready var red = $bSpin/red
 @onready var blue = $rSpin/blue
@@ -113,6 +114,7 @@ func upgradePart2():
 		
 
 func _physics_process(delta: float) -> void:
+	timeAlive += 1/50.0 * Engine.time_scale
 	blue.animSpeed = bSpinSpeed/12.0
 	red.animSpeed = rSpinSpeed/12.0
 	if dead:
@@ -138,7 +140,7 @@ func _physics_process(delta: float) -> void:
 
 func death():
 	print("dead")
-	
+	$hud/deathMenu/Panel/time.text = str(int(timeAlive)) + " Seconds"
 	$music.slow()
 	$deathTimer.start()
 	circle.queue_free()
