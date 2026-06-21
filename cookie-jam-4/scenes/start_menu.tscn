@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8iq82x1y8dpm"]
+[gd_scene load_steps=8 format=3 uid="uid://b8iq82x1y8dpm"]
 
 [ext_resource type="Script" uid="uid://mivxtrbtbibc" path="res://scripts/start_menu.gd" id="1_thu50"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_thu50"]
 [ext_resource type="FontFile" uid="uid://babqsgevqu6n1" path="res://Cave-Story.ttf" id="3_m7x51"]
+[ext_resource type="Texture2D" uid="uid://cgsc80oeatyu4" path="res://sprites/blue_monkey_sprite_sheet.png" id="4_fcv5n"]
+[ext_resource type="Texture2D" uid="uid://bvpjn4g3x3h5g" path="res://sprites/red_monkey_sprite_sheet-export.webp" id="5_4v6gu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m7x51"]
 shader = ExtResource("2_thu50")
@@ -41,7 +43,8 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 461.0
 offset_bottom = 122.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_m7x51")
+theme_override_font_sizes/font_size = 100
 text = "START"
 
 [node name="settingsB" type="Button" parent="Panel"]
@@ -50,7 +53,8 @@ offset_left = 8.0
 offset_top = 260.0
 offset_right = 461.0
 offset_bottom = 374.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_m7x51")
+theme_override_font_sizes/font_size = 100
 text = "SETTINGS"
 
 [node name="howToB" type="Button" parent="Panel"]
@@ -59,7 +63,8 @@ offset_left = 8.0
 offset_top = 134.0
 offset_right = 461.0
 offset_bottom = 248.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_m7x51")
+theme_override_font_sizes/font_size = 80
 text = "HOW TO PLAY
 "
 
@@ -146,6 +151,37 @@ offset_bottom = -228.0
 theme = SubResource("Theme_thu50")
 theme_override_font_sizes/font_size = 30
 text = "<-"
+
+[node name="blue" type="Sprite2D" parent="howToAnchor"]
+texture_filter = 1
+position = Vector2(-445, -18.999985)
+scale = Vector2(7, 7)
+texture = ExtResource("4_fcv5n")
+hframes = 16
+vframes = 3
+
+[node name="red" type="Sprite2D" parent="howToAnchor"]
+texture_filter = 1
+position = Vector2(430, -15.999985)
+scale = Vector2(7, 7)
+texture = ExtResource("5_4v6gu")
+hframes = 16
+vframes = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="howToAnchor"]
+offset_left = -341.0
+offset_top = -174.0
+offset_right = 367.0
+offset_bottom = 245.0
+theme_override_fonts/normal_font = ExtResource("3_m7x51")
+theme_override_font_sizes/normal_font_size = 50
+text = "You control these two monkeys. Press space to switch between them. 
+
+One monkey will spin the other monkey around on a rope. 
+
+Use the swinging monkey to hit enemies and get XP.
+
+When you level up, a banan will spawn. Hit the banana to get an upgrade"
 
 [connection signal="button_down" from="Panel/startB" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="Panel/settingsB" to="." method="_on_settings_b_button_down"]
