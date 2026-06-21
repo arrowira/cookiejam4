@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=32 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -17,9 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
 [ext_resource type="AudioStream" uid="uid://cxyo1i7gy4e83" path="res://audio/time slow sfx.mp3" id="17_60mlk"]
+[ext_resource type="AudioStream" uid="uid://0kl3k7ikuoy3" path="res://audio/explosion (1).wav" id="18_4ni07"]
 [ext_resource type="AudioStream" uid="uid://bhhfumbsre0un" path="res://audio/XPpickup.wav" id="18_4r5pv"]
 [ext_resource type="PackedScene" uid="uid://bml6pucoa670q" path="res://scenes/music.tscn" id="18_fulsm"]
 [ext_resource type="AudioStream" uid="uid://bbb0ddfhhbx57" path="res://audio/lvlUpSFX.mp3" id="19_60mlk"]
+[ext_resource type="AudioStream" uid="uid://xwlqwq45f0jt" path="res://audio/explosion.wav" id="19_l71n6"]
 [ext_resource type="AudioStream" uid="uid://4vmho1dek5lb" path="res://audio/powerup sound.mp3" id="20_i4ail"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
@@ -311,7 +313,14 @@ pitch_scale = 1.4
 stream = ExtResource("17_60mlk")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="audio"]
+[node name="orb" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("18_4ni07")
+volume_db = -25.0
+pitch_scale = 1.2
+
+[node name="damage" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("19_l71n6")
+volume_db = -10.0
 
 [node name="sound" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("18_4r5pv")

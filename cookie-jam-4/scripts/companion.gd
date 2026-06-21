@@ -53,9 +53,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if area.get_node("proj") != null:
 			get_parent().get_parent().hurt(color, 1)
 			$spellHit.emitting=true
+			get_parent().get_parent().get_node("audio").orb()
 			area.queue_free()
 	else:
 		if area.get_node("proj") != null:
 			
 			$spellHit.emitting=true
 			area.queue_free()
+			get_parent().get_parent().get_node("audio").orb()

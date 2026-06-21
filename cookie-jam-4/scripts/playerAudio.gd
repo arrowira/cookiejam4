@@ -12,3 +12,8 @@ func speed():
 func xp():
 	$sound.pitch_scale = 1.3 + randf()/5.0
 	$sound.play()
+func orb():
+	$orb.pitch_scale= 0.9 + randf()/5.0
+	$orb.play()
+func damage():
+	$damage.play()

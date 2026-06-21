@@ -170,6 +170,7 @@ func addXP():
 
 func hurt(color, amt):
 	if !dead:
+		audio.damage()
 		$"camera anchor/shaker".shake(6,100)
 		for i in range(amt):
 			if color == "red":
