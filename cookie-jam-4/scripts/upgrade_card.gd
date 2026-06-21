@@ -10,7 +10,7 @@ func _ready() -> void:
 	player = get_parent().get_parent().get_parent().get_parent()
 
 func initialize():
-	id = randi_range(1,7)
+	id = randi_range(1,8)
 	#id keys:
 	#1 = red health up
 	#2 = blue health up

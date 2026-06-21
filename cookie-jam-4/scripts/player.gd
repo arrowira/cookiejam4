@@ -13,7 +13,7 @@ var blueDamageMod = 1
 
 var frozen = false
 
-var upgrades = [0,0,0,0,0,0,0]
+var upgrades = [0,0,0,0,0,0,0,0]
 var lvlUpHeal = 0
 var timeSlowLength = 0.1
 var dead=false

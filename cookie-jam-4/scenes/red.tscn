@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cds6v0qvg0dyx"]
+[gd_scene load_steps=12 format=3 uid="uid://cds6v0qvg0dyx"]
 
 [ext_resource type="Script" uid="uid://clttpdgapxwag" path="res://scripts/companion.gd" id="1_8flnf"]
 [ext_resource type="Texture2D" uid="uid://bvpjn4g3x3h5g" path="res://sprites/red_monkey_sprite_sheet-export.webp" id="2_8flnf"]
@@ -77,6 +77,13 @@ _data = {
 &"unanchored": SubResource("Animation_02wpa")
 }
 
+[sub_resource type="Curve" id="Curve_vskon"]
+_data = [Vector2(0.023255825, 0.8988764), 0.0, 0.0, 0, 0, Vector2(0.97674423, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hebyl"]
+colors = PackedColorArray(0.654232, 0.6542321, 0.65423197, 0.5254902, 1, 1, 1, 1)
+
 [node name="red" type="Node2D"]
 script = ExtResource("1_8flnf")
 
@@ -109,6 +116,35 @@ z_index = -1
 position = Vector2(-0.99999964, 59)
 scale = Vector2(0.5, 0.15)
 texture = ExtResource("3_vskon")
+
+[node name="spellHit" type="CPUParticles2D" parent="."]
+position = Vector2(-2, -25)
+emitting = false
+amount = 10
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 57.74
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 878.44
+initial_velocity_max = 991.84
+angular_velocity_min = -178.14
+angular_velocity_max = 163.3
+linear_accel_min = -70.11
+linear_accel_max = -70.11
+damping_min = 9.278
+damping_max = 9.278
+scale_amount_min = 11.3
+scale_amount_max = 62.85
+scale_amount_curve = SubResource("Curve_vskon")
+color = Color(0.84817576, 0.5204255, 0.8136265, 1)
+color_initial_ramp = SubResource("Gradient_hebyl")
+hue_variation_min = -0.34
+hue_variation_max = -0.03
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
