@@ -10,4 +10,19 @@ func play():
 
 
 func _on_start_b_button_down() -> void:
-	pass # Replace with function body.
+	$cameraAnchor.position.y -= 3000
+	$startTimer.start()
+
+
+func _on_settings_b_button_down() -> void:
+	$cameraAnchor.global_position=$settingsAnchor.global_position
+
+
+func _on_how_to_b_button_down() -> void:
+	$cameraAnchor.global_position=$howToAnchor.global_position
+
+func _on_start_timer_timeout() -> void:
+	play()
+
+func back():
+	$cameraAnchor.global_position = Vector2.ZERO

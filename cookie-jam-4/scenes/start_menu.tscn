@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8iq82x1y8dpm"]
+[gd_scene load_steps=5 format=3 uid="uid://b8iq82x1y8dpm"]
 
 [ext_resource type="Script" uid="uid://mivxtrbtbibc" path="res://scripts/start_menu.gd" id="1_thu50"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_thu50"]
@@ -7,13 +7,15 @@
 shader = ExtResource("2_thu50")
 shader_parameter/innerColor = Color(0.12620676, 0.29076695, 0.20514336, 1)
 shader_parameter/outerColor = Color(0.18666917, 0.3459273, 0.272182, 1)
-shader_parameter/scale = 25.0
-shader_parameter/timeMod = 0.0
-shader_parameter/pixelation = 1.0
+shader_parameter/scale = 40.0
+shader_parameter/timeMod = 0.01
+shader_parameter/pixelation = 0.4
 shader_parameter/bold = 4.0
 shader_parameter/sharp = 3.0
-shader_parameter/moveSpeed = 1.0
+shader_parameter/moveSpeed = 6.0
 shader_parameter/focusPoint = Vector2(0.5, 0.5)
+
+[sub_resource type="Theme" id="Theme_thu50"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_thu50")
@@ -25,8 +27,6 @@ offset_left = -9693.0
 offset_top = -4678.0
 offset_right = 10307.0
 offset_bottom = 5322.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -232.0
@@ -62,4 +62,44 @@ theme_override_font_sizes/font_size = 40
 text = "HOW TO PLAY
 "
 
+[node name="back" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1130.0
+offset_top = -101.0
+offset_right = 1192.0
+offset_bottom = -40.0
+theme = SubResource("Theme_thu50")
+theme_override_font_sizes/font_size = 30
+text = "<-"
+
+[node name="back2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = -307.0
+offset_top = 759.0
+offset_right = -245.0
+offset_bottom = 820.0
+theme = SubResource("Theme_thu50")
+theme_override_font_sizes/font_size = 30
+text = "<-"
+
+[node name="startTimer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="cameraAnchor" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="cameraAnchor"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="settingsAnchor" type="Node2D" parent="."]
+position = Vector2(1457, 0)
+
+[node name="howToAnchor" type="Node2D" parent="."]
+position = Vector2(0, 840)
+
 [connection signal="button_down" from="Panel/startB" to="." method="_on_start_b_button_down"]
+[connection signal="button_down" from="Panel/settingsB" to="." method="_on_settings_b_button_down"]
+[connection signal="button_down" from="Panel/howToB" to="." method="_on_how_to_b_button_down"]
+[connection signal="button_down" from="Panel/back" to="." method="back"]
+[connection signal="button_down" from="Panel/back2" to="." method="back"]
+[connection signal="timeout" from="startTimer" to="." method="_on_start_timer_timeout"]
