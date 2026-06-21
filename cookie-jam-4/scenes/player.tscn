@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=29 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -16,9 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://d13pll2n1nq6t" path="res://audio/universfield-swoosh-015-383769.mp3" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://cyx5qnp7jjak3" path="res://audio/hitHurt.wav" id="15_4r5pv"]
 [ext_resource type="AudioStream" uid="uid://8nrgdgl2ncg7" path="res://audio/plant.wav" id="16_60mlk"]
-[ext_resource type="AudioStream" uid="uid://c1em404866pkk" path="res://audio/over the top time slow sfx.mp3" id="17_qfm1y"]
+[ext_resource type="AudioStream" path="res://audio/over the top time slow sfx.mp3" id="17_qfm1y"]
 [ext_resource type="AudioStream" uid="uid://bhhfumbsre0un" path="res://audio/XPpickup.wav" id="18_4r5pv"]
 [ext_resource type="PackedScene" uid="uid://bml6pucoa670q" path="res://scenes/music.tscn" id="18_fulsm"]
+[ext_resource type="AudioStream" uid="uid://bbb0ddfhhbx57" path="res://audio/lvlUpSFX.mp3" id="19_60mlk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
 shader = ExtResource("10_d2wvv")
@@ -313,6 +314,11 @@ volume_db = -30.0
 [node name="sound" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("18_4r5pv")
 volume_db = -20.0
+
+[node name="lvlUp" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("19_60mlk")
+
+[node name="upgrade" type="AudioStreamPlayer" parent="audio"]
 
 [node name="music" parent="." instance=ExtResource("18_fulsm")]
 

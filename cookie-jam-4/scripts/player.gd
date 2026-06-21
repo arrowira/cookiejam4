@@ -151,6 +151,7 @@ func addXP():
 	
 	if xp%maxXP != xp:
 		#level up
+		$audio/lvlUp.play()
 		var banana = pBanana.instantiate()
 		banana.global_position = lastEnemy
 		get_parent().add_child(banana)

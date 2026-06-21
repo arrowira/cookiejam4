@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c4gr2idt1j6bt" path="res://scenes/pick_up.tscn" id="4_jyhfs"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bd28s0f0f5bor" path="res://scenes/tombstone.tscn" id="6_tefeu"]
-[ext_resource type="Script" path="res://scripts/stone_spawner.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://csk8ysmbebmqc" path="res://scripts/stone_spawner.gd" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dap8ltnh3xrxy" path="res://scenes/xp_dot.tscn" id="8_tipki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]

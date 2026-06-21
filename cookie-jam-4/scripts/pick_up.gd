@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("e"):
 		if red or blue:
 			open()
+func _physics_process(delta: float) -> void:
+	var towardsPlayer = get_parent().get_node("player").anchorPos - global_position
+	position += towardsPlayer.normalized()*2*Engine.time_scale
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
