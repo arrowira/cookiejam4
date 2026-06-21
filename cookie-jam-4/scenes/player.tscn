@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bw3ldb6e8p56j"]
+[gd_scene load_steps=30 format=3 uid="uid://bw3ldb6e8p56j"]
 
 [ext_resource type="Script" uid="uid://dumrf6staihvu" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cds6v0qvg0dyx" path="res://scenes/red.tscn" id="2_dqkch"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bhhfumbsre0un" path="res://audio/XPpickup.wav" id="18_4r5pv"]
 [ext_resource type="PackedScene" uid="uid://bml6pucoa670q" path="res://scenes/music.tscn" id="18_fulsm"]
 [ext_resource type="AudioStream" uid="uid://bbb0ddfhhbx57" path="res://audio/lvlUpSFX.mp3" id="19_60mlk"]
+[ext_resource type="AudioStream" uid="uid://4vmho1dek5lb" path="res://audio/powerup sound.mp3" id="20_i4ail"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v2ag"]
 shader = ExtResource("10_d2wvv")
@@ -320,6 +321,9 @@ stream = ExtResource("19_60mlk")
 volume_db = -8.0
 
 [node name="upgrade" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("20_i4ail")
+volume_db = -20.0
+pitch_scale = 1.3
 
 [node name="music" parent="." instance=ExtResource("18_fulsm")]
 

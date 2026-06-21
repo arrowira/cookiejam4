@@ -20,7 +20,7 @@ func initialize():
 	
 	#new ability! check
 	var new = false
-	if id == 3 or id == 4:
+	if id == 3 or id == 4 or id == 8:
 		if player.upgrades[id-1] == 0:
 			$Panel2/Panel/NewUpgrade.visible = true
 			new = true
@@ -55,6 +55,11 @@ func initialize():
 			bodyText = "Red does more damage"
 		7:
 			bodyText = "Blue does more damage"
+		8:
+			if new:
+				bodyText = "on level up, both monkeys heal a heart"
+			else:
+				bodyText = "heal another heart on level up"
 	$Panel2/Panel/BodyText.text = bodyText
 	
 func _process(delta: float) -> void:

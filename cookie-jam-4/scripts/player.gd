@@ -14,8 +14,8 @@ var blueDamageMod = 1
 var frozen = false
 
 var upgrades = [0,0,0,0,0,0,0]
-var lvlUpHeal = 1
-var timeSlowLength = 1.0
+var lvlUpHeal = 0
+var timeSlowLength = 0.1
 var dead=false
 var latestPickUp
 var xp = 0
@@ -87,6 +87,7 @@ func upgrade(pickup):
 #4 = +speed from speed ring
 #5 = +rope length
 func upgradePart2():
+	$audio/upgrade.play()
 	latestPickUp.consume()
 	upgrades[upgradeID-1]+=1
 	if upgradeID == 1:
@@ -107,6 +108,8 @@ func upgradePart2():
 		redDamageMod += 0.2
 	elif upgradeID == 7:
 		redDamageMod += 0.2
+	elif upgradeID == 8:
+		lvlUpHeal += 1
 		
 
 func _physics_process(delta: float) -> void:
