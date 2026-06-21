@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8iq82x1y8dpm"]
+[gd_scene load_steps=6 format=3 uid="uid://b8iq82x1y8dpm"]
 
 [ext_resource type="Script" uid="uid://mivxtrbtbibc" path="res://scripts/start_menu.gd" id="1_thu50"]
 [ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_thu50"]
+[ext_resource type="FontFile" uid="uid://babqsgevqu6n1" path="res://Cave-Story.ttf" id="3_m7x51"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m7x51"]
 shader = ExtResource("2_thu50")
@@ -62,26 +63,6 @@ theme_override_font_sizes/font_size = 40
 text = "HOW TO PLAY
 "
 
-[node name="back" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 1130.0
-offset_top = -101.0
-offset_right = 1192.0
-offset_bottom = -40.0
-theme = SubResource("Theme_thu50")
-theme_override_font_sizes/font_size = 30
-text = "<-"
-
-[node name="back2" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = -307.0
-offset_top = 759.0
-offset_right = -245.0
-offset_bottom = 820.0
-theme = SubResource("Theme_thu50")
-theme_override_font_sizes/font_size = 30
-text = "<-"
-
 [node name="startTimer" type="Timer" parent="."]
 wait_time = 0.4
 
@@ -94,12 +75,81 @@ position_smoothing_speed = 3.0
 [node name="settingsAnchor" type="Node2D" parent="."]
 position = Vector2(1457, 0)
 
+[node name="back" type="Button" parent="settingsAnchor"]
+offset_left = -559.0
+offset_top = -309.0
+offset_right = -497.0
+offset_bottom = -248.0
+theme = SubResource("Theme_thu50")
+theme_override_font_sizes/font_size = 30
+text = "<-"
+
+[node name="Panel" type="Panel" parent="settingsAnchor"]
+offset_left = -359.0
+offset_top = -132.0
+offset_right = 354.0
+offset_bottom = 12.0
+
+[node name="HSlider" type="HSlider" parent="settingsAnchor/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 55.0
+offset_right = 696.0
+offset_bottom = 171.0
+value = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="settingsAnchor/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 729.0
+offset_bottom = 188.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_m7x51")
+theme_override_font_sizes/normal_font_size = 100
+text = "VOLUME:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="settingsAnchor"]
+offset_left = -308.0
+offset_top = -290.0
+offset_right = 312.0
+offset_bottom = -118.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 0.5058824)
+theme_override_fonts/normal_font = ExtResource("3_m7x51")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave]SETTINGS"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="settingsAnchor"]
+offset_left = -308.0
+offset_top = -297.0
+offset_right = 312.0
+offset_bottom = -125.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.5409905, 0.5409905, 0.5409905, 1)
+theme_override_fonts/normal_font = ExtResource("3_m7x51")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave]SETTINGS"
+horizontal_alignment = 1
+
 [node name="howToAnchor" type="Node2D" parent="."]
-position = Vector2(0, 840)
+position = Vector2(0, 1046)
+
+[node name="back2" type="Button" parent="howToAnchor"]
+offset_left = -539.0
+offset_top = -289.0
+offset_right = -477.0
+offset_bottom = -228.0
+theme = SubResource("Theme_thu50")
+theme_override_font_sizes/font_size = 30
+text = "<-"
 
 [connection signal="button_down" from="Panel/startB" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="Panel/settingsB" to="." method="_on_settings_b_button_down"]
 [connection signal="button_down" from="Panel/howToB" to="." method="_on_how_to_b_button_down"]
-[connection signal="button_down" from="Panel/back" to="." method="back"]
-[connection signal="button_down" from="Panel/back2" to="." method="back"]
 [connection signal="timeout" from="startTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="button_down" from="settingsAnchor/back" to="." method="back"]
+[connection signal="button_down" from="howToAnchor/back2" to="." method="back"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cookieJam4"
-run/main_scene="uid://dneomshoy6v48"
+run/main_scene="uid://b8iq82x1y8dpm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
