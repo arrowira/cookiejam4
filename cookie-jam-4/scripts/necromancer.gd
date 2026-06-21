@@ -15,7 +15,7 @@ var t = 0
 var m = 1
 
 var abilityCD = false
-var summons = 1
+var summons = 2
 
 func spawnMinion():
 	var num = randi_range(2,6)
@@ -116,7 +116,7 @@ func _on_ability_timeout() -> void:
 	if randf()<0.1 and !abilityCD and !dead and summons != 0:
 		$AnimationPlayer.play("ability")
 		$cast.play()
-		m = randi_range(3,5)*10
+		m = randi_range(2,4)*10
 		frozen = true
 		summons-=1
 		abilityCD = true

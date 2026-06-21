@@ -153,7 +153,7 @@ libraries = {
 speed_scale = 0.3
 
 [node name="abCD" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 one_shot = true
 
 [node name="ability" type="Timer" parent="."]
