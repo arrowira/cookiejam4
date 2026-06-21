@@ -1,8 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8iq82x1y8dpm"]
+[gd_scene load_steps=4 format=3 uid="uid://b8iq82x1y8dpm"]
 
-[ext_resource type="PackedScene" uid="uid://bw3ldb6e8p56j" path="res://scenes/player.tscn" id="1_ouf4f"]
+[ext_resource type="Script" uid="uid://mivxtrbtbibc" path="res://scripts/start_menu.gd" id="1_thu50"]
+[ext_resource type="Shader" uid="uid://lasivi66q35s" path="res://fractalnoise.gdshader" id="2_thu50"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7x51"]
+shader = ExtResource("2_thu50")
+shader_parameter/innerColor = Color(0.12620676, 0.29076695, 0.20514336, 1)
+shader_parameter/outerColor = Color(0.18666917, 0.3459273, 0.272182, 1)
+shader_parameter/scale = 25.0
+shader_parameter/timeMod = 0.0
+shader_parameter/pixelation = 1.0
+shader_parameter/bold = 4.0
+shader_parameter/sharp = 3.0
+shader_parameter/moveSpeed = 1.0
+shader_parameter/focusPoint = Vector2(0.5, 0.5)
 
 [node name="StartMenu" type="Node2D"]
+script = ExtResource("1_thu50")
 
-[node name="player" parent="." instance=ExtResource("1_ouf4f")]
-position = Vector2(21, 67)
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -4096
+material = SubResource("ShaderMaterial_m7x51")
+offset_left = -9693.0
+offset_top = -4678.0
+offset_right = 10307.0
+offset_bottom = 5322.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -232.0
+offset_top = -208.0
+offset_right = 236.0
+offset_bottom = 180.0
+
+[node name="startB" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 461.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="settingsB" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 260.0
+offset_right = 461.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 40
+text = "SETTINGS"
+
+[node name="howToB" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 134.0
+offset_right = 461.0
+offset_bottom = 248.0
+theme_override_font_sizes/font_size = 40
+text = "HOW TO PLAY
+"
+
+[connection signal="button_down" from="Panel/startB" to="." method="_on_start_b_button_down"]
