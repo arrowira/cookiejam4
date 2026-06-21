@@ -80,9 +80,6 @@ func death():
 	
 	dead = true
 	frozen = true
-	var ghost = pGhost.instantiate()
-	ghost.global_position=global_position
-	get_parent().add_child(ghost)
 	
 	$deathTimer.start()
 	$AnimationPlayer.play("death")
