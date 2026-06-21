@@ -14,6 +14,7 @@ var blueDamageMod = 1
 var frozen = false
 
 var upgrades = [0,0,0,0,0,0,0]
+var lvlUpHeal = 1
 var timeSlowLength = 1.0
 var dead=false
 var latestPickUp
@@ -151,6 +152,9 @@ func addXP():
 	
 	if xp%maxXP != xp:
 		#level up
+		for i in range(lvlUpHeal):
+			$hud/redHearts.heal()
+			$hud/blueHearts.heal()
 		$audio/lvlUp.play()
 		var banana = pBanana.instantiate()
 		banana.global_position = lastEnemy

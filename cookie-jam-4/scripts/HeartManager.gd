@@ -25,13 +25,14 @@ func takeDamage():
 	if health == 0:
 		get_parent().get_parent().death()
 func heal():
-	if myColor == "red":
-		get_parent().get_parent().redHealth +=1
-	else:
-		get_parent().get_parent().blueHealth +=1
-	
-	health += 1
-	flipHeart(health-1,0)
+	if health != len(hearts):
+		if myColor == "red":
+			get_parent().get_parent().redHealth +=1
+		else:
+			get_parent().get_parent().blueHealth +=1
+		
+		health += 1
+		flipHeart(health-1,0)
 
 func flipHeart(index, bit):
 	hearts[index].frame = bit
