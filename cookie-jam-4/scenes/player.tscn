@@ -165,25 +165,26 @@ offset_bottom = 595.0
 
 [node name="enterB" type="Button" parent="hud/upgradeMenu/Panel"]
 layout_mode = 0
-offset_left = 283.0
+offset_left = 264.0
 offset_top = 497.0
-offset_right = 548.0
+offset_right = 529.0
 offset_bottom = 528.0
 text = "OKAY"
 
 [node name="upgradeCard" parent="hud/upgradeMenu/Panel" instance=ExtResource("6_fjrip")]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 277.0
-offset_right = 179.0
-offset_bottom = 277.0
+offset_left = 242.0
+offset_top = 278.0
+offset_right = 242.0
+offset_bottom = 278.0
 
 [node name="upgradeCard2" parent="hud/upgradeMenu/Panel" instance=ExtResource("6_fjrip")]
 layout_mode = 0
-offset_left = 574.0
-offset_top = 277.0
-offset_right = 574.0
-offset_bottom = 277.0
+offset_left = 549.0
+offset_top = 278.0
+offset_right = 549.0
+offset_bottom = 278.0
+follower = true
 
 [node name="stopwatch" type="Control" parent="hud"]
 visible = false

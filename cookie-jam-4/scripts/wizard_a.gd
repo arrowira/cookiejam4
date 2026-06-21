@@ -9,7 +9,7 @@ var dead = false
 
 var pGhost = preload("res://scenes/grunt_ghost.tscn")
 var pXP = preload("res://scenes/xp_dot.tscn")
-var speed = 0.5
+var speed = 1
 
 var t = 0
 var isWalking = true

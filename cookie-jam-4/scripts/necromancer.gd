@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	rotation = 0
 	if !inKB and !frozen:
 		towardsPlayer = (player-global_position).normalized()
-		position+=towardsPlayer*speed*Engine.time_scale + Vector2(cos(t), sin(t))
+		position+=(towardsPlayer*speed + Vector2(cos(t), sin(t)))*Engine.time_scale
 
 func death():
 	$death.play()

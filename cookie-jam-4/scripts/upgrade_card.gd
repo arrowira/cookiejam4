@@ -5,6 +5,7 @@ var mouseIn = false
 
 var id = 0
 var player
+@export var follower = false
 
 func _ready() -> void:
 	player = get_parent().get_parent().get_parent().get_parent()
@@ -63,6 +64,9 @@ func initialize():
 	$Panel2/Panel/BodyText.text = bodyText
 	
 func _process(delta: float) -> void:
+	if follower:
+		if id == get_parent().get_node("upgradeCard").id:
+			initialize()
 	var t = get_global_mouse_position()
 	$Panel2.get_material().set_shader_parameter("focusPoint", t)
 	
