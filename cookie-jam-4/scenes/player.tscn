@@ -247,6 +247,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="deathMenu" type="Control" parent="hud"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
